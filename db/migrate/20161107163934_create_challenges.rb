@@ -1,0 +1,11 @@
+class CreateChallenges < ActiveRecord::Migration[5.0]
+  def change
+    create_table :challenges do |t|
+      t.string :name
+      t.text :description
+      t.references :life_goal, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end
