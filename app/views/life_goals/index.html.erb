@@ -1,0 +1,5 @@
+<h1>Life Goals</h1>
+
+<% @life_goals.each do |life_goal| %>
+  <%= link_to life_goal.name, life_goal_path(life_goal) %>
+  <% end %>
