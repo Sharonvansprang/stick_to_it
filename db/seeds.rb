@@ -15,5 +15,5 @@ productive = LifeGoal.create(name: "Be more productive")
 
 plug = Challenge.create(name: "Plug out before 10", description: "Don't open up your laptop, switch of your phone or tablet after 10pm, read a book, talk to your roommates or call it an early night", life_goal: zen)
 banana = Challenge.create(name: "Eat bananas", description: "bananas are superhealthy, monkeys also eat it.", life_goal: healthy)
-Challenge.create(name: "Have a single purpose focus", description: "Pick one thing and do that one thing—and only that one thing—better than anyone else ever could.", life_goal: productive)
+focus = Challenge.create(name: "Have a single purpose focus", description: "Pick one thing and do that one thing—and only that one thing—better than anyone else ever could.", life_goal: productive)
 
