@@ -1,2 +1,5 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Life Goals</h1>
+
+<% @life_goals.each do |life_goal| %>
+  <%= life_goal.name %>
+  <% end %>

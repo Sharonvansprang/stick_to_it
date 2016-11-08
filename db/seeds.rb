@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+LifeGoal.create(name: "Be more zen")
+LifeGoal.create(name: "Live healthier")
+LifeGoal.create(name: "Be more productive")
