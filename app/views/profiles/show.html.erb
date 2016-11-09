@@ -1,5 +1,5 @@
 
-<div class="text-center">
+<div class="bio-profile banner-life-goals text-center">
   <h2>
     <%= current_user.first_name %>  <%= current_user.last_name %>'s profile!
   </h2>
@@ -13,9 +13,8 @@
     </p>
   </div>
 
-
-<%= link_to "Edit your profile", edit_user_profile_path(current_user, current_user.profile) %>
-
-
+  <div class="button btn-danger">
+    <%= link_to "Edit your profile", edit_user_profile_path(current_user, current_user.profile)%>
+  </div>
 </div>
 
