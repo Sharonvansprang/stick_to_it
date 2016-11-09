@@ -1,0 +1,27 @@
+<h2>Welcome <%=current_user.first_name %>   <%=current_user.last_name %>!</h2>
+
+
+
+
+<div class="questions text-center">
+<h3>Please fill in the following details to make your profile complete.
+Some questions you could answer in your bio:
+
+
+<ul>
+<li>- test</li>
+<li>- lorem</li>
+<li>- ipsum</li>
+</ul>
+</h3>
+</div>
+
+<div class="form text-center">
+<%= simple_form_for [current_user, @profile] do |f| %>
+  <%= f.input :bio %>
+<!-- #still need the upload picture option in here
+ -->
+  <%= f.submit "write something funny" %>
+<% end %>
+
+</div>
