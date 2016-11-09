@@ -5,7 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-         def self.find_for_facebook_oauth(auth)
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, uniqueness: true, presence:true
+
+
+  has_one :profile, dependent: :destroy
+  has_many :achievements, dependent: :destroy
+
+  def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice('provider', 'uid')
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
     user_params[:facebook_picture_url] = auth.info.image
