@@ -1,14 +1,24 @@
-<%= current_user.first_name %>
-<%= current_user.last_name %>
+
+<div class="profile-edit-container text-center background-edit">
+
+<h1> <%= current_user.first_name %>
+<%= current_user.last_name %></h1>
 
 
 
-<div class="form text-center">
+
+
+<div class="profile-edit-form">
+
+
+
 <%= simple_form_for [current_user, @profile] do |f| %>
-  <%= f.input :bio %>
+  <h3><%= f.input :bio %></h3>
 <!-- #still need the upload picture option in here
  -->
-  <%= f.submit "write something funnier" %>
+ <h5> <%= f.submit "write something funnier" %></h5>
 <% end %>
+
+</div>
 
 </div>
