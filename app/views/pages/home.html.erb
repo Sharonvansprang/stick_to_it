@@ -10,30 +10,37 @@
 
 
       <!-- Your features code -->
-      <div class="container text-center padded features">
+      <div class="container text-center padded">
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-3">
-          <%= image_tag 'brain.png' %>
+          <%= image_tag 'brain.png', class:"logo" %>
 
-            <h2>Focus, concentrate and reach your Goal</h2>
-            <p>we help you keep focused  when your mind is rapped up with millions of things!</p>
-            <p>change your habbits in 21 days! And reach your goal</p>
+            <h2>Challenge yourself!!</h2>
+            <p>We help you keep focused when your mind is rapped up with millions of things!</p>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-3">
-            <%= image_tag 'love.png' %>
 
-            <h2>You are not alone</h2>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <%= image_tag 'love.png', class: "logo" %>
+            <h2>Share the love</h2>
+            <p>Live a healthier, happier and a more enjoyable live. </p>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+             <%= image_tag 'friends2.png', class: "logo" %>
+            <h2>you are not alone</h2>
             <p>Your buddies are here to cheer you on when you lack motivation</p>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-3">
-             <%= image_tag 'best-friends-icons' %>
-            <h2>Meet people</h2>
-            <p>Discover the spots together.</p>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-3">
-             <%= image_tag 'smartphone' %>
-            <h2>Anytime, Anyplace, Anywhere</h2>
-            <p>Stick to it is your personal coach you can fit in your pocket.</p>
+             <%= image_tag 'smartphone', class: "logo" %>
+            <h2>Anytime,Anywhere</h2>
+            <p>Stick to it, is your personal coach you can fit in your pocket.</p>
           </div>
         </div>
         <div></div></div>
+
+        <div class= "container wrapper">
+        <%= @all_users %>
+
+
+        </div>
+
