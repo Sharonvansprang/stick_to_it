@@ -1,6 +1,16 @@
-<h1>blabla</h1>
-<%= @life_goal.name %>
-<% @challenges.each do |challenge| %>
-<%= challenge.name %>
-<%= challenge.description %>
-<% end %>
+
+<section id="life-goals-header">
+  <div class="row">
+    <div class="banner-container">
+      <div class="banner-life-goals">
+          <%= @life_goal.name %>
+          <% @challenges.each do |challenge| %>
+          <%= challenge.name %>
+          <div class="card">
+          <%= challenge.description %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
