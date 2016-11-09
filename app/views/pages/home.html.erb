@@ -38,8 +38,17 @@
         </div>
         <div></div></div>
 
-        <div class= "container wrapper">
-        <%= @all_users %>
+
+
+        <div class="text-center padded" id="newsletter">
+  <h2>Want to try some awesome cocktails?<%= @all_users %></h2>
+  <p>Leave your e-mail so we can share our best recipies</p>
+  <form class="form-inline">
+    <input placeholder="name@gmail.com" class="form-control" type="email">
+    <input value="Subscribe" class="btn btn-primary btn-bordered btn-bordered-primary" type="submit">
+  </form>
+</div>
+
 
 
         </div>
