@@ -1,0 +1,23 @@
+.overallcontainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-size: cover !important;
+background-image: image-url('pink_rice.png');
+
+}
+
+.logincontainer{
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+margin-top: 40px;
+// position: relative;
+// left:25%;
+width:40%;
+padding:20px;
+}
+
+
