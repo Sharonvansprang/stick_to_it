@@ -12,19 +12,24 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: image-url('banner.png');
+  background-image: image-url('pink_rice.png');
 }
 .banner-life-goals h1 {
   font-size: 50px;
   font-weight: bold;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  margin-bottom: 40px;
+  text-shadow: 0px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
 }
 .banner-life-goals p {
   font-size: 20px;
   font-weight: lighter;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 20px;
+}
+
+.banner-life-goals h2 {
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
 
 .banner-life-goals a {

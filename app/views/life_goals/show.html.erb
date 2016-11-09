@@ -3,9 +3,9 @@
   <div class="row">
     <div class="banner-container">
       <div class="banner-life-goals">
-          <%= @life_goal.name %>
-          <% @challenges.each do |challenge| %>
-          <%= challenge.name %>
+          <h1><%= @life_goal.name %></h1>
+          <h2><% @challenges.each do |challenge| %>
+          <%= challenge.name %></h2>
           <div class="card">
           <%= challenge.description %>
           <% end %>
