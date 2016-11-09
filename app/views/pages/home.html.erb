@@ -9,9 +9,9 @@
 </div>
 
 
-      <!-- Your features code -->
+      <!-- features code -->
       <div class="container text-center">
-        <div class="row">
+        <div class="row" id="howto-margin">
           <div class="col-xs-12 col-sm-6 col-md-3">
           <%= image_tag 'brain.png', class:"logo" %>
 
@@ -38,13 +38,21 @@
         </div>
         <div></div></div>
 
+<!-- spread the love -->
 
-
-        <div class="text-center padded">
-  <h2>Already <%= @all_users %> users are realising there goals</h2>
-  <p>Leave your e-mail so we can share our best recipies</p>
+        <div class="text-center padded1 icons">
+  <h1>Already <em><strong><%= @all_users %></strong></em> users are realising their goals</h1>
+  <h2>Sign up now and reach your goals in 21 days</h2>
+  <%= link_to 'Sign up',  new_user_session_path, class: "btn btn-primary btn-lg" %>
 </div>
-
-
-
-        </div>
+</div>
+<!-- footer -->
+<!-- <div id="footer">
+  <ul class="text-center list-inline">
+    <li><a href=""><i class="fa fa-youtube fa-2x"></i></a></li>
+    <li><a href=""><i class="fa fa-instagram fa-2x"></i></a></li>
+    <li><a href=""><i class="fa fa-facebook fa-2x"></i></a></li>
+    <li><a href=""><i class="fa fa-twitter fa-2x"></i></a></li>
+  </ul>
+  <div></div></div>
+ -->
