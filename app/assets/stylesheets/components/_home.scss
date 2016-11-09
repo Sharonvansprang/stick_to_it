@@ -1,4 +1,5 @@
 // start banner
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
 .banner {
   color: white;
   text-align: center;
@@ -65,9 +66,9 @@ h2 {
     margin-bottom: 20px;
     color: #88C48D;
   }
-.padded {
-    padding: 100px 0;
-    background: #d0c5c5;
+.padded1 {
+    padding: 84px 0;
+    background: #88C48D;
 }
 .text-center {
     text-align: center;
@@ -76,3 +77,21 @@ h2 {
 .p {
   margin-bottom: 50px;
 }
+.icons {
+// margin-bottom: 500px;
+font-family: 'Luckiest Guy', cursive;
+color: white;
+}
+
+#howto-margin {
+  margin-top: 35px;
+  margin-bottom:40px;
+}
+// footer
+#footer {
+    background: #333333;
+    padding: 40px 0;
+    color: #CCCCCC;
+    text-align: center;
+  }
+
