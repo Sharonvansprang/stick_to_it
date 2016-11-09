@@ -1,25 +1,20 @@
 
 <div class="text-center">
-<h2>
+  <h2>
+    <%= current_user.first_name %>  <%= current_user.last_name %>'s profile!
+  </h2>
 
+  <div class="bio">
+    <h3>
+      Your bio:
+    </h3>
+    <p>
+      <%= current_user.profile.bio %>
+    </p>
+  </div>
 
-<%= current_user.first_name %>  <%= current_user.last_name %>'s profile!
-
-
-
-</h2>
-
-
-
-<div class="bio">
-<h3>
-Your bio: </h3>
-
-<p>
-  <%= current_user.profile.bio %>
-
-</p>
+<%= link_to "Edit your profile", edit_user_profile_path(current_user, current_user.profile) %>
 
 
 </div>
-</div>
+
