@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-  mount Attachinary::Engine => "/attachinary"
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  resources :users, except: [:index, :create, :new, :show, :update, :edit, :destroy] do
+  mount Attachinary::Engine => "/attachinary"
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'registrations'
+  }
+
+
+   resources :users, except: [:index, :create, :new, :show, :update, :edit, :destroy] do
      resources :profiles
 
     end
+
 
 
 
