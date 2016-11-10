@@ -83,4 +83,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Added this to be able to deploy
+  config.action_mailer.default_url_options = { host: "https://stick-toit.herokuapp.com" }
+
 end
