@@ -19,6 +19,10 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
 
+group :development do
+  gem 'letter_opener'
+end
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'

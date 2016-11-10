@@ -1,0 +1,57 @@
+Sent mail
+start with a rails devise template if you do not have one already
+
+Use actionMailer
+rails generate mailer usermailer
+Creates a model.(rb) and a html
+you also have to do it in erb
+
+rb
+
+def welcome(user:)
+@user = user
+from "welcomtosticktoit"
+return_path: "info@stictioit.nl"
+mail to: user.email, subject: 'thank you for signing up'
+end
+end
+
+applicaion mailer.rb
+default from: 'info@gmail.com'
+
+
+email styling mag in mailer.html.erb
+mail.erxt.erb (als je een disclaimer wil in je mail, dan moet dat hier)
+
+mkdir -p test (to test mailer) usermailerpreview
+user=User.first
+UserMailer=.welcome(user: user)
+-------------------------------------------------------------------------
+
+Us the letter opener gem to test mails
+plaats het onder
+group: development do
+gem"letter_opener"
+bundle install
+
+rails c (to fake sent a mail)
+user= UserMailer.welcome (user:user).deliver.now
+
+user.rb
+
+sent mail when user requested it
+app wachtwoord
+
+de app wachtwoorden van je gmail plaats je in je application.yml
+
+mag maar 500
+Use mailcatcher to test when you have to build a lot of mails.
+mailcatcher.me
+
+instal gem instal mailcatcher
+postmarkapp.com (als je geen gmail account wil gebruiken) je mag dan 10.000 messages gratis mails versturen. BIj gmail maar 500
+
+mailchimp toevoegen aan de website ()
+gibbon gem
+
+never use models to push to your clients (interaction does not belong in the model)

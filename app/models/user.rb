@@ -30,6 +30,6 @@ class User < ApplicationRecord
       user.save
     end
 
-    return user
+    user
   end
 end
