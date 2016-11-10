@@ -18,7 +18,7 @@ def create
 end
 
 def show
-# raise 'paulien'
+  @profile = current_user.profile
 end
 
 def edit
@@ -60,7 +60,7 @@ end
 private
 
 def profile_params
-  params.require(:profile).permit(:bio)
+  params.require(:profile).permit(:bio, :photo, :photo_cache)
 end
 
 # def find_user
