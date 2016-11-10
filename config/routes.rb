@@ -8,11 +8,14 @@ Rails.application.routes.draw do
     end
 
 
-  resources :life_goals, only: [:index, :show] do
-    resources :challenges, only: [:index, :show]
-  end
+  resources :life_goals, only: [:index, :show]
+  # do
 
+  # end
 
+resources :challenges, only: [:index, :show] do
+      resources :achievements
+    end
 
   root to: 'pages#home'
 
