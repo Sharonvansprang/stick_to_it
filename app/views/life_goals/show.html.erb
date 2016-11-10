@@ -3,14 +3,26 @@
   <div class="row">
     <div class="banner-container">
       <div class="banner-life-goals">
-          <h1><%= @life_goal.name %></h1>
-          <h2><% @challenges.each do |challenge| %>
+        <h1><%= @life_goal.name %></h1>
+        <h2><% @challenges.each do |challenge| %>
           <%= challenge.name %></h2>
           <div class="card">
-          <%= challenge.description %>
-          <% end %>
+            <%= challenge.description %>
+
+            <%  if current_user.challenges.include?(challenge)%>
+
+            <br/>
+            <h3>You are already signed up!</h3>
+
+            <% else %>
+            <%= link_to "sign up for this challenge", new_challenge_achievement_path(challenge) %>
+
+            <% end %>
+
+            <% end %>
+
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>

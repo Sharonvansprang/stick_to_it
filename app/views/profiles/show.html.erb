@@ -11,6 +11,7 @@
     <p>
       <%= current_user.profile.bio %>
     </p>
+      <%= cl_image_tag @profile.photo.path, width: 200, height: 200, crop: :fill  %>
   </div>
 
   <div class="button btn-danger">

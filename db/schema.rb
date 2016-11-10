@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108103707) do
+ActiveRecord::Schema.define(version: 20161110140007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,21 @@ ActiveRecord::Schema.define(version: 20161108103707) do
     t.datetime "updated_at",   null: false
     t.index ["challenge_id"], name: "index_achievements_on_challenge_id", using: :btree
     t.index ["user_id"], name: "index_achievements_on_user_id", using: :btree
+  end
+
+  create_table "attachinary_files", force: :cascade do |t|
+    t.string   "attachinariable_type"
+    t.integer  "attachinariable_id"
+    t.string   "scope"
+    t.string   "public_id"
+    t.string   "version"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "format"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
   create_table "challenges", force: :cascade do |t|
@@ -45,8 +60,10 @@ ActiveRecord::Schema.define(version: 20161108103707) do
     t.text     "bio"
     t.string   "picture"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "photo"
+    t.string   "photo_cache"
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
