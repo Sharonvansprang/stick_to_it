@@ -14,8 +14,8 @@
 
 <%= simple_form_for [current_user, @profile] do |f| %>
   <h3><%= f.input :bio, :label => "write something funnier" %></h3>
-<!-- #still need the upload picture option in here
- -->
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
  <h5> <%= f.submit "update your bio" %></h5>
 <% end %>
 
