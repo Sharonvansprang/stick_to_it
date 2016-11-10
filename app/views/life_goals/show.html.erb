@@ -8,7 +8,11 @@
           <%= challenge.name %></h2>
           <div class="card">
           <%= challenge.description %>
+
+
+          <%= link_to "sign up for this challenge", new_challenge_achievement_path(challenge) %>
           <% end %>
+
         </div>
       </div>
     </div>

@@ -1,0 +1,24 @@
+
+
+
+<% if @achievements == nil %>
+
+<%= simple_form_for [@challenge, @achievement] do |f| %>
+<%= f.input :startdate %>
+<%= f.input :enddate %>
+<%= f.submit "start this challenge", class: "btn btn-primary" %>
+<% end %>
+
+
+
+<% else %>
+
+
+<%  @achievements.each do |achievement| %>
+
+<% "<p>hello</p>" if achievement.challenge == @challenge %>
+<% "<p>nono</p>" if achievement.challenge != @challenge %>
+
+
+<%  end %>
+<% end %>
