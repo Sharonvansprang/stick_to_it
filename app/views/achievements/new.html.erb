@@ -1,7 +1,7 @@
 
 
 
-<% if @achievements == nil %>
+<%# if @achievements == nil %>
 
 <%= simple_form_for [@challenge, @achievement] do |f| %>
 <%= f.input :startdate %>
@@ -11,14 +11,20 @@
 
 
 
-<% else %>
+<%# else %>
 
 
-<%  @achievements.each do |achievement| %>
+<%#  @achievements.each do |achievement| %>
+<%# if achievement.challenge == @challenge%>
+<!--    whaddup -->
+<%# else %>
+<!-- not up
+ -->
 
-<% "<p>hello</p>" if achievement.challenge == @challenge %>
-<% "<p>nono</p>" if achievement.challenge != @challenge %>
+   <%# end %>
+<%# "<p>hello</p>" if achievement.challenge == @challenge %>
+<%# "<p>nono</p>" if achievement.challenge != @challenge %>
 
 
-<%  end %>
-<% end %>
+<%# end %>
+<%# end %>
