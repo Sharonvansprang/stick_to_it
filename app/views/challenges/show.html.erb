@@ -1,0 +1,19 @@
+
+<div class="text-center">
+<h1>
+<%= @challenge.name %></h1>
+
+<h3><%= @challenge.description %></h3>
+
+
+<%  if current_user.challenges.include?(@challenge)%>
+
+            <br/>
+            <h4>You are already signed up for this challenge!</h4>
+
+            <% else %>
+            <%= link_to "sign up for this challenge", new_challenge_achievement_path(@challenge) %>
+
+            <% end %>
+
+</div>

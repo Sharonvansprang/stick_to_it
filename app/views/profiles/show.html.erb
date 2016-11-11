@@ -23,9 +23,9 @@
   <div class="challenge-show">
     <h3>Your challenges:</h3>
     <ul>
-     <h4> <% @challenges.each do |challenge| %>
-      <li>  <%= challenge.name %></li>
-      <% end %></h4></ul>
+      <% @challenges.each do |challenge| %>
+      <li><%= link_to challenge.name, challenge_path(challenge)%></li>
+      <% end %>  </ul>
   </div>
 <br>
 

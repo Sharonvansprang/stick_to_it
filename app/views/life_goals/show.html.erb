@@ -5,7 +5,10 @@
       <div class="banner-life-goals">
         <h1><%= @life_goal.name %></h1>
         <h2><% @challenges.each do |challenge| %>
-          <%= challenge.name %></h2>
+
+            <%= link_to challenge.name, challenge_path(challenge)  %>
+
+          </h2>
           <div class="card">
             <%= challenge.description %>
 
@@ -15,7 +18,8 @@
             <h3>You are already signed up!</h3>
 
             <% else %>
-            <%= link_to "sign up for this challenge", new_challenge_achievement_path(challenge) %>
+            <h3>
+            <%= link_to "sign up for this challenge", new_challenge_achievement_path(challenge) %></h3>
 
             <% end %>
 
