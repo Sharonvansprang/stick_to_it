@@ -3,6 +3,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  height: calc(100%-100px);
   background-size: cover !important;
   background-image: image-url('pink_rice.png');
 
@@ -21,17 +22,6 @@ width:40%;
 padding:20px;
 }
 
-h4 {
- color: #EE7D9A;
-}
-
-h5 {
- color: #EE7D9A;
-}
-
-h6 {
- color: #EE7D9A;
-}
 
 .profile h2 {
   // margin-top: 40px;
@@ -74,4 +64,12 @@ ul {
 }
 
 
+
+
+.loginheader-font h1{
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
 
