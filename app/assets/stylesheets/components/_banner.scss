@@ -4,7 +4,7 @@
 .banner-life-goals {
   color: #333333;
   text-align: center;
-  height: calc(100vh - 100px);
+  height: 100%;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -13,6 +13,22 @@
   justify-content: center;
   background-image: image-url('pink_rice.png');
 }
+
+.banner-life-goals2 {
+  color: #333333;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: image-url('pink_rice.png');
+}
+
+
+
 .banner-life-goals h1 {
   font-size: 50px;
   font-weight: bold;
@@ -32,17 +48,33 @@
 }
 
 .banner-life-goals a {
+  // border-bottom: 2px solid #333;
+  // padding: 20px;
+  color: #333;
+  font-size: 20px;
+}
+
+
+.banner-life-goals2 a {
   border-bottom: 2px solid #333;
   padding: 20px;
   color: #333;
   font-size: 20px;
 }
 
+
 .banner-life-goals a:hover {
   font-size: 21px;
   transition-timing-function: ease-in-out;
   transition: 1s;
 }
+
+.banner-life-goals2 a:hover {
+  font-size: 21px;
+  transition-timing-function: ease-in-out;
+  transition: 1s;
+}
+
 
 .banner-life-goals .card {
   width: 30%;

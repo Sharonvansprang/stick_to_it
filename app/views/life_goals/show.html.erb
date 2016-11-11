@@ -1,32 +1,32 @@
 
-<section id="life-goals-header">
-  <div class="row">
-    <div class="banner-container">
-      <div class="banner-life-goals">
-        <h1><%= @life_goal.name %></h1>
-        <h2><% @challenges.each do |challenge| %>
+  <div class="banner-life-goals">
+<!--     <div class="banner-container">
+ --><!--       <div class="banner-life-goals">
+ -->        <h1><%= @life_goal.name %></h1>
+<!--        <div class="card">
+ -->       <% @challenges.each do |challenge| %>
+<br/>
+<br/>
 
-            <%= link_to challenge.name, challenge_path(challenge)  %>
-
-          </h2>
-          <div class="card">
-            <%= challenge.description %>
+             <h2><%= challenge.name %> </h2>
+          <%= challenge.description %>
 
             <%  if current_user.challenges.include?(challenge)%>
 
-            <br/>
+
             <h3>You are already signed up!</h3>
 
             <% else %>
             <h3>
             <%= link_to "sign up for this challenge", new_challenge_achievement_path(challenge) %></h3>
+<!--  </div>
+ -->            <% end %>
+<br/>
+<br/>
 
             <% end %>
 
-            <% end %>
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <!--   </div> -->
+<!--       </div>
+ -->    </div>
