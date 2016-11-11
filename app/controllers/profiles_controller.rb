@@ -19,6 +19,7 @@ end
 
 def show
   @profile = current_user.profile
+  @challenges = current_user.challenges
 end
 
 def edit
