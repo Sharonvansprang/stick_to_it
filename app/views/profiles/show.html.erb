@@ -21,15 +21,26 @@
   </div>
 
   <div class="challenge-show">
+
+<% if @challenges.count == 0 %>
+<br/>
+<h4>You haven't signed up for any challenges yet.</h4>
+<br/>
+<br/>
+<% else %>
     <h3>Your challenges:</h3>
     <ul>
       <% @challenges.each do |challenge| %>
       <li><%= link_to challenge.name, challenge_path(challenge)%></li>
       <% end %>  </ul>
   </div>
+
+
+<% end %>
+
 <br>
 
-  <div class="button btn-danger">
+  <div class="button">
     <%= link_to "Edit your profile", edit_user_profile_path(current_user, current_user.profile)%>
   </div>
 </div>

@@ -10,16 +10,25 @@
 
           </h2>
           <div class="card">
-            <%= challenge.description %>
+            <h4><%= challenge.description %></h4>
 
             <%  if current_user.challenges.include?(challenge)%>
 
             <br/>
             <h3>You are already signed up!</h3>
 
+
             <% else %>
-            <h3>
-            <%= link_to "sign up for this challenge", new_challenge_achievement_path(challenge) %></h3>
+
+
+
+
+            <%#= simple_form_for [challenge, @achievement] do |f| %>
+            <%#= f.input :startdate, placeholder: "dd-mm-yyyy", label: "On which day do you want to start this challenge?" %>
+            <%#= f.input :enddate, placeholder: "dd-mm-yyyy", label: "On which day do you want to end this challenge?" %>
+            <%#= f.submit "start this challenge", class: "btn btn-primary" %>
+            <%# end %>
+            <%= link_to "sign up for this challenge", new_challenge_achievement_path(challenge) %>
 
             <% end %>
 
