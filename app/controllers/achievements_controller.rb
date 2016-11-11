@@ -5,19 +5,13 @@ class AchievementsController < ApplicationController
   # , only: [:new, :create]
 
 
-  def index
-    @achievements = current_user.achievements
-  end
+#   def index
+#     @achievements = current_user.achievements
+#   end
 
   def new
-
-
     @achievements = current_user.achievements
-
     @achievement = Achievement.new
-
-
-# raise "paulien"
   end
 
   def create
