@@ -4,7 +4,7 @@
 .banner-life-goals {
   color: #333333;
   text-align: center;
-  height: 100%;
+  height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -48,8 +48,8 @@
 }
 
 .banner-life-goals a {
-  // border-bottom: 2px solid #333;
-  // padding: 20px;
+  border-bottom: 2px solid #333;
+  padding: 20px;
   color: #333;
   font-size: 20px;
 }
