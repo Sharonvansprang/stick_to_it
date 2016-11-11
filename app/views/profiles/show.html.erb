@@ -11,8 +11,23 @@
     <p>
       <%= current_user.profile.bio %>
     </p>
-      <%= cl_image_tag @profile.photo.path, width: 200, height: 200, crop: :fill  %>
+
+<% unless @profile.photo == nil %>
+
+    <%= cl_image_tag @profile.photo.path, width: 200, height: 200, crop: :fill  %>
+
+<% end %>
+
   </div>
+
+  <div class="challenge-show">
+    <h3>Your challenges:</h3>
+    <ul>
+     <h4> <% @challenges.each do |challenge| %>
+      <li>  <%= challenge.name %></li>
+      <% end %></h4></ul>
+  </div>
+<br>
 
   <div class="button btn-danger">
     <%= link_to "Edit your profile", edit_user_profile_path(current_user, current_user.profile)%>
