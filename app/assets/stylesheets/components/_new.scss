@@ -4,20 +4,74 @@
   flex-direction: column;
   align-items: center;
   background-size: cover !important;
-background-image: image-url('pink_rice.png');
+  background-image: image-url('pink_rice.png');
 
 }
+
 
 .logincontainer{
   display: flex;
   flex-direction: column;
   // justify-content: center;
   // align-items: center;
-margin-top: 40px;
+  margin-top: 100px;
 // position: relative;
 // left:25%;
 width:40%;
 padding:20px;
 }
+
+h4 {
+ color: #EE7D9A;
+}
+
+h5 {
+ color: #EE7D9A;
+}
+
+h6 {
+ color: #EE7D9A;
+}
+
+.profile h2 {
+  // margin-top: 40px;
+  // background-color: #fcfcfc;
+  padding: 50px;
+  text-shadow: 0px 3px rgba(0, 0, 0, 0.2);
+  font-size: 50px;
+  color: #88CED9;
+}
+
+.profile h3 {
+  line-height: 40%;
+  color:#333333;
+}
+
+.background-new {
+  color: #333333;
+  // text-align: center;
+  width: 100vw;
+  height: calc(100vh - 100px);
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  // background-size: cover;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+  background-image: image-url('pink_rice.png');
+}
+
+ul {
+  list-style: none;
+  font-size: 20px;
+  font-weight: normal;
+  color: #333333;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  line-height: 90%;
+  word-spacing: 2px;
+  font-style: italic;
+}
+
 
 
