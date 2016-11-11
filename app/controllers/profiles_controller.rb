@@ -47,24 +47,10 @@ def destroy
   end
 end
 
-
-
-
-
-
-
-
-
-
-
-
 private
 
 def profile_params
   params.require(:profile).permit(:bio, :photo, :photo_cache)
 end
 
-# def find_user
-#   @user = User.find(params[:user_id])
-# end
 end

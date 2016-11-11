@@ -1,32 +1,45 @@
 
-  <div class="banner-life-goals">
-<!--     <div class="banner-container">
- --><!--       <div class="banner-life-goals">
- -->        <h1><%= @life_goal.name %></h1>
-<!--        <div class="card">
- -->       <% @challenges.each do |challenge| %>
+
+  <div class="banner-life-goals2">
+
+       <h1><%= @life_goal.name %></h1>
+
+      <% @challenges.each do |challenge| %>
 <br/>
 <br/>
 
              <h2><%= challenge.name %> </h2>
           <%= challenge.description %>
 
+
             <%  if current_user.challenges.include?(challenge)%>
 
 
             <h3>You are already signed up!</h3>
 
+
             <% else %>
+
             <h3>
             <%= link_to "sign up for this challenge", new_challenge_achievement_path(challenge) %></h3>
-<!--  </div>
- -->            <% end %>
+<% end %>
+<% end %>
+
+
 <br/>
 <br/>
 
-            <% end %>
 
 
-      <!--   </div> -->
-<!--       </div>
- -->    </div>
+
+ </div>
+
+
+            <%#= simple_form_for [challenge, @achievement] do |f| %>
+            <%#= f.input :startdate, placeholder: "dd-mm-yyyy", label: "On which day do you want to start this challenge?" %>
+            <%#= f.input :enddate, placeholder: "dd-mm-yyyy", label: "On which day do you want to end this challenge?" %>
+            <%#= f.submit "start this challenge", class: "btn btn-primary" %>
+            <%# end %>
+
+
+

@@ -1,30 +1,7 @@
 
-
-
-<%# if @achievements == nil %>
-
 <%= simple_form_for [@challenge, @achievement] do |f| %>
-<%= f.input :startdate %>
-<%= f.input :enddate %>
+<%= f.input :startdate, placeholder: "dd-mm-yyyy", label: "On which day do you want to start this challenge?" %>
+<%= f.input :enddate, placeholder: "dd-mm-yyyy", label: "On which day do you want to end this challenge?" %>
 <%= f.submit "start this challenge", class: "btn btn-primary" %>
 <% end %>
 
-
-
-<%# else %>
-
-
-<%#  @achievements.each do |achievement| %>
-<%# if achievement.challenge == @challenge%>
-<!--    whaddup -->
-<%# else %>
-<!-- not up
- -->
-
-   <%# end %>
-<%# "<p>hello</p>" if achievement.challenge == @challenge %>
-<%# "<p>nono</p>" if achievement.challenge != @challenge %>
-
-
-<%# end %>
-<%# end %>

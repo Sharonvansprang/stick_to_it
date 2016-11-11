@@ -1,8 +1,10 @@
-<div class="edit-field text-center">
 
-<h2> Edit your account settings<%#= resource_name.to_s.humanize %>
+<div class="overallcontainer edit-field text-center">
+<h2> Edit your account settings<%#= resource_name.to_s.humanize %></h2>
 
-</h2>
+<div class="logincontainer">
+
+
 
 
 <% if current_user.provider == "facebook"%>
@@ -38,8 +40,9 @@
 <br/>
 <br/>
 <br/>
-
-
+</div>
+</div>
+<div class= "paddedcancel">
 <h3>Cancel my account</h3>
 
 <p>Are you unhappy with our app? You can always cancel your account. But all your information will be lost. </p><p> <%= link_to "Cancel your account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
