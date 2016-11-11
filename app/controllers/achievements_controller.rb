@@ -25,8 +25,10 @@ class AchievementsController < ApplicationController
     @achievement = Achievement.new(achievement_params)
     @achievement.user = current_user
     @achievement.challenge = @challenge
-    if @achievement.save
+    if @achievement.save && current_user.profile != nil
       redirect_to user_profile_path(current_user, current_user.profile)
+    elsif @achievement.save
+      redirect_to root_path
     else
       render :new
     end
