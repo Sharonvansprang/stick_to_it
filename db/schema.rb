@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110140007) do
+ActiveRecord::Schema.define(version: 20161114152650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "achievements", force: :cascade do |t|
-    t.string   "startdate"
-    t.string   "enddate"
     t.integer  "user_id"
     t.integer  "challenge_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.date     "startdate"
+    t.integer  "buddy_achievement_id"
+    t.index ["buddy_achievement_id"], name: "index_achievements_on_buddy_achievement_id", using: :btree
     t.index ["challenge_id"], name: "index_achievements_on_challenge_id", using: :btree
     t.index ["user_id"], name: "index_achievements_on_user_id", using: :btree
   end
@@ -67,6 +68,17 @@ ActiveRecord::Schema.define(version: 20161110140007) do
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
+  create_table "progresses", force: :cascade do |t|
+    t.string   "mood"
+    t.boolean  "done"
+    t.text     "log"
+    t.date     "day"
+    t.integer  "achievement_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["achievement_id"], name: "index_progresses_on_achievement_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -91,8 +103,10 @@ ActiveRecord::Schema.define(version: 20161110140007) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "achievements", "achievements", column: "buddy_achievement_id"
   add_foreign_key "achievements", "challenges"
   add_foreign_key "achievements", "users"
   add_foreign_key "challenges", "life_goals"
   add_foreign_key "profiles", "users"
+  add_foreign_key "progresses", "achievements"
 end
