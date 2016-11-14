@@ -1,15 +1,77 @@
-
-//////////////  ALLROUND STYLING CLASSES FOR THE APP  /////////////
+// ALLROUND STYLING CLASSES
 
 .card {
   background-color: #fff;
   padding: 40px;
   display: flex;
   flex-direction: column;
-  border-radius: 3px
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.overallcontainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100%-100px);
+  background-size: cover !important;
+  background-image: image-url('pink_rice.png');
+
 }
 
 a:hover {
   text-decoration: none;
-
 }
+
+.banner-general {
+  color: #333333;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: image-url('pink_rice.png');
+}
+
+.banner-general .card {
+  width: 30%;
+}
+
+.banner-general a:hover {
+  font-size: 21px;
+  transition-timing-function: ease-in-out;
+  transition: 1s;
+}
+
+.banner-general a {
+  border-bottom: 2px solid #333;
+  padding: 20px;
+  color: #333;
+  font-size: 20px;
+}
+
+.banner-general h2 {
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.banner-general h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+.banner-general p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+

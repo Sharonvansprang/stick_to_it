@@ -1,0 +1,39 @@
+//  BANNER CSS FOR LIFEGOALS
+
+.banner-life-goals {
+  color: #333333;
+  text-align: center;
+  height: 100%;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: image-url('pink_rice.png');
+}
+
+.banner-life-goals a {
+  border-bottom: 2px solid #333;
+  padding: 20px;
+  color: #333;
+  font-size: 20px;
+}
+
+
+.banner-life-goals a:hover {
+  font-size: 21px;
+  transition-timing-function: ease-in-out;
+  transition: 1s;
+}
+
+#life-goals-header .card {
+  padding-bottom: 60px;
+}
+
+#life-goals-header h1 {
+margin-bottom: 40px;
+}
+
+
+

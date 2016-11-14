@@ -6,17 +6,17 @@
 <section id="life-goals-header">
   <div class="row">
     <div class="banner-container">
-      <div class="banner-life-goals">
+      <div class="banner-general">
         <h1>Life Goals</h1>
-        <div class="card">
-          <% @life_goals.each do |life_goal| %>
-          <%= link_to life_goal.name, life_goal_path(life_goal) %>
-          <% end %>
+          <div class="card">
+            <% @life_goals.each do |life_goal| %>
+            <%= link_to life_goal.name, life_goal_path(life_goal) %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
 <!-- <div class="text-center life-goals">
@@ -36,38 +36,38 @@
 </div>
 
 
-      <!-- features code -->
-      <div class="container text-center">
-        <div class="row" id="howto-margin">
-          <div class="col-xs-12 col-sm-6 col-md-3">
-          <%= image_tag 'brain.png', class:"logo" %>
+<!-- features code -->
+<div class="container text-center">
+  <div class="row" id="howto-margin">
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <%= image_tag 'brain.png', class:"logo" %>
 
-            <h2>Challenge yourself!</h2>
-            <p>We help you keep focused when your mind is rapped up with millions of things!</p>
-          </div>
+      <h2>Challenge yourself!</h2>
+      <p>We help you keep focused when your mind is rapped up with millions of things!</p>
+    </div>
 
-          <div class="col-xs-12 col-sm-6 col-md-3">
-            <%= image_tag 'love.png', class: "logo" %>
-            <h2>Share the love</h2>
-            <p>Live a healthier, happier and a more enjoyable live. </p>
-          </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <%= image_tag 'love.png', class: "logo" %>
+      <h2>Share the love</h2>
+      <p>Live a healthier, happier and a more enjoyable live. </p>
+    </div>
 
-          <div class="col-xs-12 col-sm-6 col-md-3">
-             <%= image_tag 'friends2.png', class: "logo" %>
-            <h2>You are not alone</h2>
-            <p>Your buddies are here to cheer you on when you lack motivation</p>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-3">
-             <%= image_tag 'smartphone.png', class: "logo" %>
-            <h2>Anytime, anywhere</h2>
-            <p>Stick to it, is your personal coach you can fit in your pocket.</p>
-          </div>
-        </div>
-        <div></div></div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+     <%= image_tag 'friends2.png', class: "logo" %>
+     <h2>You are not alone</h2>
+     <p>Your buddies are here to cheer you on when you lack motivation</p>
+   </div>
+   <div class="col-xs-12 col-sm-6 col-md-3">
+     <%= image_tag 'smartphone.png', class: "logo" %>
+     <h2>Anytime, anywhere</h2>
+     <p>Stick to it, is your personal coach you can fit in your pocket.</p>
+   </div>
+ </div>
+ <div></div></div>
 
-<!-- spread the love -->
+ <!-- spread the love -->
 
-        <div class="text-center padded1 icons">
+ <div class="text-center padded1 icons">
   <h1>Already <em><strong><%= @all_users %></strong></em> users are realising their goals</h1>
   <h2>Sign up now and reach your goals in 21 days</h2>
   <%#= link_to 'Sign up',  new_user_session_path, class: "btn btn-primary btn-lg" %>
@@ -82,6 +82,6 @@
     <li><a href=""><i class="fa fa-twitter fa-2x"></i></a></li>
   </ul>
   <div></div></div>
- -->
+-->
 
 <% end %>

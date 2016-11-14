@@ -10,22 +10,14 @@
 .profile-edit-form {
   width: 600px;
   margin-top: 35px;
-  // background-color: #fcfcfc;
   padding: 20px;
 }
 
 
 .background-edit {
   color: #333333;
-  // text-align: center;
   width: 100vw;
   height: calc(100vh - 100px);
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  // background-size: cover;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
   background-image: image-url('pink_rice.png');
 }
 
