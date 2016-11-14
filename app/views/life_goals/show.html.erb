@@ -10,7 +10,7 @@
           <%  if current_user.challenges.include?(challenge)%>
           <h3>You are already signed up!</h3>
           <% else %>
-          <h3><%= link_to "sign up for this challenge", new_challenge_achievement_path(challenge) %></h3>
+          <h3><%= link_to "Read more.. #{challenge.name}", challenge_path(challenge) %></h3>
           <% end %>
         </div>
       </div>
