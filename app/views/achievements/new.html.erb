@@ -1,7 +1,6 @@
 
 <%= simple_form_for [@challenge, @achievement] do |f| %>
-<%= f.input :startdate, placeholder: "dd-mm-yyyy", label: "On which day do you want to start this challenge?" %>
-<%= f.input :enddate, placeholder: "dd-mm-yyyy", label: "On which day do you want to end this challenge?" %>
+<%= f.input :startdate, label: "On which day do you want to start this challenge?", selected: Date.today%>
 <%= f.submit "start this challenge", class: "btn btn-primary" %>
 <% end %>
 
