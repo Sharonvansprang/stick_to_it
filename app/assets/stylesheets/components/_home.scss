@@ -70,7 +70,7 @@ h2 {
   justify-content: center;
   margin-bottom: 20px;
   color: #88C48D;
-  }
+}
 .padded1 {
   padding: 84px 0;
   background: #88C48D;
@@ -84,8 +84,8 @@ h2 {
 }
 .icons {
 // margin-bottom: 500px;
-  font-family: 'Luckiest Guy', cursive;
-  color: white;
+font-family: 'Luckiest Guy', cursive;
+color: white;
 }
 
 #howto-margin {
@@ -98,7 +98,7 @@ h2 {
   padding: 40px 0;
   color: #CCCCCC;
   text-align: center;
-  }
+}
 
 // unregister button
 .paddedcancel{
@@ -114,4 +114,31 @@ h2 {
 .paddedcancel h3{
   font-weight: bold;
   font-size: 30px;
+}
+
+.banner-background {
+  color: #2f2f2f;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-color: #88C48D;
+  background-size: cover !important;
+  background-image: url("cloud.png");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-cloud {
+  background-color: #88C48D;
+  padding: 140px 0;
+  text-align: center;
+  color: white;
+}
+.newsletter-signin {
+
+   background-image: url("scratch.png");
+   padding:75px 200px;
+   background-repeat: no-repeat;
+
 }
