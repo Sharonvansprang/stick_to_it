@@ -3,7 +3,6 @@
   <h2>
     <%= current_user.first_name %>  <%= current_user.last_name %>'s profile!
   </h2>
-
   <div class="bio">
     <h3>
       Your bio:
@@ -11,37 +10,23 @@
     <p>
       <%= current_user.profile.bio %>
     </p>
-
-<% unless @profile.photo == nil %>
-
+    <% unless @profile.photo == nil %>
     <%= cl_image_tag @profile.photo.path, width: 200, height: 200, crop: :fill  %>
-
-<% end %>
-
+    <% end %>
   </div>
-
-  <div class="challenge-show">
-
-<% if @challenges.count == 0 %>
-<br/>
-<h4>You haven't signed up for any challenges yet.</h4>
-<br/>
-<br/>
-<% else %>
+  <div class="challenge-show card">
+    <% if @challenges.count == 0 %>
+    <h4>You haven't signed up for any challenges yet.</h4>
+    <% else %>
     <h3>Your challenges:</h3>
     <ul>
       <% @challenges.each do |challenge| %>
       <li><%= link_to challenge.name, challenge_path(challenge)%></li>
       <% end %>  </ul>
+    </div>
+    <% end %>
+    <div class="button">
+      <%= link_to "Edit your profile", edit_user_profile_path(current_user, current_user.profile)%>
+    </div>
   </div>
-
-
-<% end %>
-
-<br>
-
-  <div class="button">
-    <%= link_to "Edit your profile", edit_user_profile_path(current_user, current_user.profile)%>
-  </div>
-</div>
 

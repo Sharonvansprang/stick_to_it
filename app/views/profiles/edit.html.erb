@@ -1,24 +1,15 @@
 
 <div class="profile-edit-container text-center background-edit">
+  <h1> <%= current_user.first_name %>
+    <%= current_user.last_name %></h1>
+    <div class="profile-edit-form">
 
-<h1> <%= current_user.first_name %>
-<%= current_user.last_name %></h1>
+      <%= simple_form_for [current_user, @profile] do |f| %>
+      <h3><%= f.input :bio, :label => "write something funnier" %></h3>
+      <%= f.input :photo, as: :attachinary %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <h5> <%= f.submit "update your bio" %></h5>
+      <% end %>
+    </div>
+  </div>
 
-
-
-
-
-<div class="profile-edit-form">
-
-
-
-<%= simple_form_for [current_user, @profile] do |f| %>
-  <h3><%= f.input :bio, :label => "write something funnier" %></h3>
-  <%= f.input :photo, as: :attachinary %>
-  <%= f.input :photo_cache, as: :hidden %>
- <h5> <%= f.submit "update your bio" %></h5>
-<% end %>
-
-</div>
-
-</div>
