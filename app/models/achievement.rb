@@ -6,7 +6,7 @@ class Achievement < ApplicationRecord
 
   validates :startdate, presence: true
   validate :start_date_valid?, :id_unique?
-  validates :buddy_achievement_id
+  # validates :buddy_achievement_id
   # , exclusion: { in: [:id] }
 
 
