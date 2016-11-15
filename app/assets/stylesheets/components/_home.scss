@@ -94,9 +94,9 @@ color: white;
 }
 // footer
 #footer {
-  background: #333333;
-  padding: 40px 0;
-  color: #CCCCCC;
+  background: #88C48D;
+  padding: 87px 0;
+  color: #EE7D9A;
   text-align: center;
 }
 
@@ -116,6 +116,13 @@ color: white;
   font-size: 30px;
 }
 
+.header-cloud {
+  background-color: #88C48D;
+  padding: 140px 0;
+  text-align: center;
+  color:white;
+}
+
 .banner-background {
   color: #2f2f2f;
   text-align: center;
@@ -129,16 +136,42 @@ color: white;
   justify-content: center;
 }
 
-.header-cloud {
-  background-color: #88C48D;
-  padding: 140px 0;
+
+#scratch-wrapper .imagery {
+  height: 265px;
+  }
+
+#scratch-wrapper .image-fluid {
+  margin-left: 20px;
+}
+
+#scratch-wrapper .content {
   text-align: center;
+  margin-top: -210px;
   color: white;
 }
-.newsletter-signin {
 
-   background-image: url("scratch.png");
-   padding:75px 200px;
-   background-repeat: no-repeat;
+#scratch-wrapper .outer-container {
+  padding: 170px 0;
 
 }
+
+.email {
+  color: black
+}
+
+.button-log {
+  margin-left: 10px;
+  padding: 12px 20px;
+  border-radius: 20em;
+  line-height: 40px;
+  background-color: #88CED9;
+  color: white;
+  font-size: 14px;
+  border: 2px solid #88CED9;
+}
+.button-log:hover {
+  color: white;
+  background: #EE7D9A;
+  border-color: #EE7D9A;
+  }
