@@ -5,7 +5,9 @@ class Achievement < ApplicationRecord
   has_many :progresses
 
   validates :startdate, presence: true
-  validate :start_date_valid?
+  validate :start_date_valid?, :id_unique?
+  validates :buddy_achievement_id
+  # , exclusion: { in: [:id] }
 
 
   private
@@ -18,6 +20,19 @@ class Achievement < ApplicationRecord
       errors.add(:startdate, "You can't retroactively start a challenge!")
     end
   end
+
+
+  # def id_unique?
+  #   if self.buddy_achievement == self
+  #     errors.add(:buddy_achievement, "You can't retroactively start a challenge!")
+  #     return false
+  #   else
+  #     return true
+  #   end
+  # end
+
+
+
 end
 
 
