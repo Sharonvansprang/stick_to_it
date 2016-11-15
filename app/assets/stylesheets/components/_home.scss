@@ -1,5 +1,6 @@
 // start banner
 @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 .life-goals {
   padding: 50px;
@@ -149,6 +150,7 @@ color: white;
   text-align: center;
   margin-top: -210px;
   color: white;
+  font-family: 'Quicksand', sans-serif
 }
 
 #scratch-wrapper .outer-container {
@@ -175,3 +177,18 @@ color: white;
   background: #EE7D9A;
   border-color: #EE7D9A;
   }
+
+.headerhome h1{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 900;
+  font-size:400%;
+}
+.headerrest h2 h3{
+ font-family: 'Quicksand', sans-serif;
+}
+
+.header-alinea p{
+font-family: 'Quicksand', sans-serif
+}
+
+
