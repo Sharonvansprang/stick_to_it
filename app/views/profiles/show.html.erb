@@ -1,5 +1,5 @@
-
 <div class="bio-profile banner-general text-center">
+  <div id="fb-root"></div>
   <h2>
     <%= current_user.first_name %>  <%= current_user.last_name %>'s profile!
   </h2>
@@ -30,3 +30,7 @@
     </div>
   </div>
 
+<%= content_for(:after_js) do %>
+
+
+<% end %>
