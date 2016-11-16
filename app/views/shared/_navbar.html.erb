@@ -25,6 +25,7 @@
     <li><%= link_to "My Challenges", user_achievements_path(current_user) %>
     </li>
 
+
     <li>
       <% if current_user.profile == nil %>
       <%= link_to "Make a profile", new_profile_path  %>

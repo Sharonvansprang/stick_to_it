@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
    resources :users, except: [:index, :create, :new, :show, :update, :edit, :destroy] do
      # resources :profiles
-     resources :achievements, except: [:new, :create]
+     resources :achievements, except: [:new, :create] do
+      resources :progresses, except: [:index, :destroy]
+    end
 
     end
 
