@@ -118,7 +118,7 @@ color: white;
 }
 
 .header-cloud {
-  background-color: #88C48D;
+  background-color: red;
   padding: 140px 0;
   text-align: center;
   color:white;
@@ -131,7 +131,7 @@ color: white;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-color: #88C48D;
   background-size: cover !important;
-  background-image: url("cloud.png");
+  background-image: image-url("cloud.png");
   display: flex;
   align-items: center;
   justify-content: center;
