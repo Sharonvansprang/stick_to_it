@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
 
-before_action :find_profile, only: [:show]
+before_action :find_profile, only: [:show, :edit, :update]
 
 def new
   @profile = Profile.new
@@ -11,7 +11,7 @@ def create
   @profile.user = current_user
 
   if @profile.save
-    redirect_to user_profile_path(current_user, current_user.profile)
+    redirect_to profile_path(current_user.profile)
   else
     render :new
   end
@@ -23,29 +23,26 @@ def show
 end
 
 def edit
-  @profile = current_user.profile
 end
 
 def update
-  @profile = current_user.profile
-  @profile.update(profile_params)
 
+  @profile.update(profile_params)
   if @profile.save
-    redirect_to user_profile_path(current_user, current_user.profile)
+    redirect_to profile_path(@profile)
   else
     render :new
   end
 end
 
-
-def destroy
-  @user = current_user
-  if @user.destroy
-    redirect_to root_url, notice: "User deleted."
-  else
-    render_error_message
-  end
-end
+# def destroy
+#   @user = current_user
+#   if @user.destroy
+#     redirect_to root_url, notice: "User deleted."
+#   else
+#     render_error_message
+#   end
+# end
 
 private
 

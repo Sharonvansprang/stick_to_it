@@ -1,1 +1,68 @@
-<%= @achievement.challenge.name %>
+<h1> <%= @achievement.challenge.name %></h1>
+
+
+<p> <%= @achievement.startdate %> </p>
+
+<% if @progress_today.nil? %>
+
+ <%= simple_form_for [current_user, @achievement, @progress] do |f| %>
+<%= f.hidden_field :day, value: Date.today%>
+<%= f.input :mood, collection: Progress::MOOD, include_blank: false %>
+<%= f.input :done %>
+<%= f.input :log %>
+<%= f.submit "update your daily progress", class: "btn btn-primary" %>
+<% end %>
+
+<% else %>
+<h2>This is your progress for today</h2>
+
+<p>Your thoughts:
+<%= @progress_today.log %></p>
+
+
+<p>Your mood:
+<%= @progress_today.mood %></p>
+
+<% if @progress_today.done %>
+<p>You have completed your task of the day!</p>
+
+<% end %>
+
+<% end %>
+
+<br>
+
+
+
+<h4> Your buddy:
+
+<%= @buddy_achievement.user.first_name %> <%= @buddy_achievement.user.last_name %></h4>
+
+
+<% if @buddy_progress_today.nil? %>
+
+<p>Your buddy has not posted anything yet today!</p>
+
+<% else %>
+
+
+<h2>This is their progress for today</h2>
+
+<p>Their thoughts:
+<%= @buddy_progress_today.log %></p>
+
+
+<p>Their mood:
+<%= @buddy_progress_today.mood %></p>
+
+<% if @buddy_progress_today.done %>
+<p>They have completed their task of the day!</p>
+
+<% end %>
+
+<% end %>
+
+
+
+
+
