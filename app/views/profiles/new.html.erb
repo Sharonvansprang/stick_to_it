@@ -16,7 +16,7 @@
       <div class="col-sm-12 col-md-4 col-md-offset-4">
         <div class="form-container">
          <!-- <div class= "logincontainer" > -->
-         <%= simple_form_for [current_user, @profile] do |f| %>
+         <%= simple_form_for [@profile] do |f| %>
          <h5><%= f.input :bio %></h5>
          <h5><%= f.input :photo, as: :attachinary %></h5>
          <h5><%= f.input :photo_cache, as: :hidden %></h5>

@@ -11,6 +11,11 @@ class AchievementsController < ApplicationController
   end
 
   def show
+    @progress = Progress.new
+    @progress_today = Progress.find_by(achievement: @achievement, day: Date.today)
+    @buddy_achievement = @achievement.buddy_achievement
+    @buddy_progress_today =  Progress.find_by(achievement: @buddy_achievement, day: Date.today)
+
   end
 
   def new

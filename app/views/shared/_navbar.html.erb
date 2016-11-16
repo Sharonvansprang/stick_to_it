@@ -51,7 +51,7 @@
 
                 <%if current_user.profile == nil %>
 
-                <%= link_to new_profile_path(current_user) do %>
+                <%= link_to new_profile_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
                 <% end %>
                 <% else %>
