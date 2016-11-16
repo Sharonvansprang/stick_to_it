@@ -5,6 +5,8 @@ class Achievement < ApplicationRecord
   has_many :progresses
 
   validates :startdate, presence: true
+  validates :challenge, uniqueness: {scope: :user}
+
   validate :start_date_valid?, :not_own_buddy?
 
 

@@ -1,3 +1,26 @@
+<h2>Welcome to all your challenges </h2>
+
+
+<ul>
+
 <% @achievements.each do |achievement| %>
-<%= achievement.challenge %>
+<li>
+
+<% if achievement.buddy_achievement.nil? %>
+<%= achievement.challenge.name %>
+<%= link_to "Find a buddy!", edit_user_achievement_path(current_user, achievement)  %>
+
+<% else %>
+<%= link_to achievement.challenge.name, user_achievement_path(current_user, achievement) %>
+  Your buddy is:
+  <%= link_to "#{achievement.buddy_achievement.user.first_name}#{achievement.buddy_achievement.user.last_name}", profile_path(achievement.buddy_achievement.user.profile)  %>
+
+
+<% end %>
+
+
+
+</li>
+<br/>
 <% end  %>
+</ul>

@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
 
-# before_action :find_user, only: [:new]
+before_action :find_profile, only: [:show]
 
 def new
   @profile = Profile.new
@@ -18,8 +18,8 @@ def create
 end
 
 def show
-  @profile = current_user.profile
-  @challenges = current_user.challenges
+  @user = @profile.user
+  @challenges = @user.challenges
 end
 
 def edit
@@ -52,5 +52,10 @@ private
 def profile_params
   params.require(:profile).permit(:bio, :photo, :photo_cache)
 end
+
+def find_profile
+  @profile = Profile.find(params[:id])
+end
+
 
 end

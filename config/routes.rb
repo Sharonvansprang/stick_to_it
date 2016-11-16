@@ -8,10 +8,13 @@ Rails.application.routes.draw do
 
 
    resources :users, except: [:index, :create, :new, :show, :update, :edit, :destroy] do
-     resources :profiles
+     # resources :profiles
+     resources :achievements, except: [:new, :create]
 
     end
 
+
+  resources :profiles, only: [:show, :new, :edit, :create, :update]
 
 
 
@@ -21,7 +24,7 @@ Rails.application.routes.draw do
   # end
 
 resources :challenges, only: [:index, :show] do
-      resources :achievements
+      resources :achievements, only: [:new, :create]
     end
 
   root to: 'pages#home'
