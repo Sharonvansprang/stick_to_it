@@ -101,6 +101,10 @@ color: white;
   text-align: center;
 }
 
+.footer-icons {
+  color: white;
+}
+
 // unregister button
 .paddedcancel{
   padding: 84px 0;
@@ -127,7 +131,9 @@ color: white;
 .banner-background {
   color: #2f2f2f;
   text-align: center;
-  height: 100vh;
+  height: auto;
+  padding-top: 150px;
+  padding-bottom: 100px;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-color: #88C48D;
   background-size: cover !important;
@@ -140,7 +146,7 @@ color: white;
 
 #scratch-wrapper .imagery {
   height: 265px;
-  }
+}
 
 #scratch-wrapper .image-fluid {
   margin-left: 20px;
@@ -148,9 +154,14 @@ color: white;
 
 #scratch-wrapper .content {
   text-align: center;
-  margin-top: -210px;
+  margin-top: -237px;
   color: white;
-  font-family: 'Quicksand', sans-serif
+  font-family: 'Quicksand', sans-serif;
+}
+.content {
+  width: 550px;
+  height: 220px;
+  padding-left: 150px;
 }
 
 #scratch-wrapper .outer-container {
@@ -176,7 +187,7 @@ color: white;
   color: white;
   background: #EE7D9A;
   border-color: #EE7D9A;
-  }
+}
 
 .headerhome h1{
   font-family: 'Quicksand', sans-serif;
@@ -188,7 +199,19 @@ color: white;
 }
 
 .header-alinea p{
-font-family: 'Quicksand', sans-serif
+  font-family: 'Quicksand', sans-serif
 }
 
+@media all and (max-width: 850px) {
 
+  .image-fluid {
+    height: 331px;
+    width: 673px;
+  }
+}
+
+@media all and (max-width: 700px) {
+  .image-fluid {
+    width: 90vw;
+  }
+}
