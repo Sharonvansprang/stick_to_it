@@ -24,6 +24,7 @@ class AchievementsController < ApplicationController
   end
 
   def create
+    @achievements = Achievement.where(challenge: @challenge)
     @achievement = Achievement.new(achievement_params)
     @achievement.user = current_user
     @achievement.challenge = @challenge
