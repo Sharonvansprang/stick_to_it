@@ -1,138 +1,56 @@
-<div class="navbar-wagon ">
-<!-- <div class="row">
-  <div class="container-navbar"> -->
-    <div class="navbar-wagon-right">
-    <!-- Logo -->
-    <div class="logo-position">
-      <%= link_to root_path, class: "navbar-wagon-brand animated.hinge" do %>
-      <%= image_tag 'stick_to_it.png' %>
+<script id="tumblr-js" async src="https://assets.tumblr.com/share-button.js"></script>
+<nav>
+  <% if user_signed_in? %>
+  <div class="bottom-nav">
+    <div class="logo-container">
+     <%= link_to root_path, class: "stick-to-it" do %>
+     <%= image_tag("stick_to_it.png", class: "logo-nav") %>
+     <% end %>
+   </div>
+
+   <ul>
+    <li><div class="user-avatar">
+      <% if current_user.profile == nil && current_user.facebook_picture_url == nil %>
+      <%= image_tag "placeholder.png", class: "avatar-nav"%>
+      <% elsif current_user.profile.photo != nil %>
+      <%= cl_image_tag current_user.profile.photo.path, gravity: :face, class: "avatar-nav" %>
+      <% elsif current_user.facebook_picture_url == nil%>
+      <%= image_tag "placeholder.png", class: "avatar-nav"%>
+      <% else %>
+      <%= image_tag current_user.facebook_picture_url, class: "avatar-nav" %>
       <% end %>
     </div>
-    <!-- Right Navigation -->
-      <!-- Search form -->
- <!--    <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search challenge">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
-  -->
-  <!-- Different navigation if login or not -->
-  <% if user_signed_in? %>
 
-  <!-- Notification -->
-  <%#= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-       <!--  <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
-        </div> -->
-        <%# end %>
-
-        <!-- Profile picture and dropdown -->
-
-        <div class="navbar-wagon-item">
+    <span> <%= current_user.first_name %>    <%= current_user.last_name   %> </span></li>
+    <li><%= link_to "My Challenges", user_achievements_path(current_user) %>
+    </li>
 
 
-          <div class="dropdown">
-            <div class="avatar-position">
-
-
-
-            <%if current_user.profile == nil %>
-            <%= image_tag "placeholder.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-            <%elsif current_user.profile.photo != nil%>
-            <%= cl_image_tag current_user.profile.photo.path, gravity: :face, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown"  %>
-            <%elsif current_user.facebook_picture_url == nil%>
-            <%= image_tag "placeholder.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-            <%else%>
-            <%= image_tag current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %> <% end %>
-            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-              <li>
-
-                <%if current_user.profile == nil %>
-
-                <%= link_to new_profile_path do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-                <% end %>
-                <% else %>
-                <%= link_to profile_path(current_user.profile) do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-                <% end %>
-
-                <% end %>
-              </li>
-              <li>
-                <%= link_to edit_user_registration_path(current_user) do %>
-                <i class="fa fa-user-circle-o"></i>  <%= t(".profile", default: "Account settings") %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Dropdown list appearing on mobile only -->
-    <!-- <div class="navbar-wagon-item hidden-md hidden-lg">
-      <div class="dropdown">
-        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-                 <%#if current_user.profile == nil %>
-            <%#= image_tag "placeholder.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-            <%#elsif current_user.profile.photo != nil%>
-            <%#= cl_image_tag current_user.profile.photo.path, gravity: :face, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown"  %>
-            <%#elsif current_user.facebook_picture_url == nil%>
-            <%#= image_tag "placeholder.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-            <%#else%>
-            <%#= image_tag current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %> <#% end %>
-            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-              <li>
-
-                <%#if current_user.profile == nil %>
-
-                <%#= link_to new_user_profile_path(current_user) do %>
-                <i class="fa fa-user"></i> <%#= t(".profile", default: "Profile") %>
-                <%# end %>
-
-
-                <%# else %>
-                <%#= link_to user_profile_path(current_user, current_user.profile) do %>
-                <i class="fa fa-user"></i> <%#= t(".profile", default: "Profile") %>
-                <%# end %>
-
-                <%# end %>
-              </li>
-              <li>
-                <%#= link_to edit_user_registration_path(current_user) do %>
-                <i class="fa fa-user-circle-o"></i>  <%#= t(".profile", default: "Account settings") %>
-                <%# end %>
-              </li>
-            <li>
-              <%#= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fa fa-sign-out"></i>  <%#= t(".sign_out", default: "Log out") %>
-              <%# end %>
-            </li>
-          </ul>
-      </div>
-    </div> -->
-    <% else %>
-
-    <!-- Login text link -->
-    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-button" %>
-
-    <% end %>
+    <li>
+      <% if current_user.profile == nil %>
+      <%= link_to "Make a profile", new_profile_path  %>
+      <% else %>
+      <%= link_to "My Profile", profile_path(current_user.profile) %>
+      <% end %>
+    </li>
+    <li><%= link_to destroy_user_session_path, method: :delete do %>
+      <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+      <% end %></li>
+    </ul>
   </div>
-</div>
-</div>
-</div>
-<div class="text-navbar">
-          <%= link_to "Home" %>
-          <%= link_to ("Life Goals"), root_path%>
-          <%= link_to ("Progress") %>
-          <%= link_to ("Buddy") %>
-</div>
-
-</div>
+  <% else %>
+  <div class="top-nav">
+    <div class="logo-container">
+     <%= link_to root_path, class: "stick-to-it" do %>
+     <%= image_tag("stick_to_it.png", class: "logo-nav") %>
+     <% end %>
+   </div>
+   <ul>
+     <li><%= link_to "Home", root_path %> </li>
+     <li><iframe class="btn" frameborder="0" border="0" scrolling="no" allowtransparency="true" height="36" src="https://platform.tumblr.com/v2/follow_button.html?type=follow-blog&amp;tumblelog=sticktoit&amp;color=blue"></iframe></li>
+     <li> <%= link_to t(".sign_in", default: "Login"), new_user_session_path %> </li>
+   </ul>
+ </div>
+ <% end %>
+</nav>
 
