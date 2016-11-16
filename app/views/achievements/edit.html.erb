@@ -1,0 +1,43 @@
+<h2><%= @achievement.challenge.name %>
+  <br/>
+  <%=@achievement.startdate%></h2>
+
+
+  <% if @achievements.empty? %>
+
+<h3>There are no other users that want to take on this challenge.</h3>
+
+
+  <% else %>
+
+  <h3>These are the other users that want to take on this challenge:</h3>
+
+  <% @achievements.each do |achievement| %>
+
+  <% if achievement.buddy_achievement.nil? && achievement.startdate == @achievement.startdate %>
+  <%= achievement.user.first_name %><%= achievement.user.last_name %>
+
+  <%= link_to "See their profile", profile_path(achievement.user.profile)  %>
+  <%= achievement.startdate %>
+
+
+
+
+
+
+  <%= simple_form_for [current_user, @achievement] do |f| %>
+  <h3><%= f.hidden_field :buddy_achievement_id, value: achievement.id %></h3>
+  <h5> <%= f.submit "Select this buddy" %></h5>
+  <% end %>
+
+
+
+
+
+  <% end %>
+
+  <% end %>
+
+
+  <% end %>
+

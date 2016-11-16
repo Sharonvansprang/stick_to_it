@@ -1,34 +1,37 @@
 <div class="bio-profile banner-general text-center">
   <div id="fb-root"></div>
   <h2>
-    <%= current_user.first_name %>  <%= current_user.last_name %>'s profile!
+    <%= @user.first_name %>  <%= @user.last_name %>'s profile!
   </h2>
   <div class="bio">
-    <h3>
-      Your bio:
-    </h3>
+
     <p>
-      <%= current_user.profile.bio %>
+      <%= @user.profile.bio %>
     </p>
     <% unless @profile.photo == nil %>
     <%= cl_image_tag @profile.photo.path, width: 200, height: 200, crop: :fill  %>
     <% end %>
   </div>
-  <div class="challenge-show card">
+
+
+
+<% if @user == current_user %>
+<div class="challenge-show card">
     <% if @challenges.count == 0 %>
     <h4>You haven't signed up for any challenges yet.</h4>
     <% else %>
-    <h3>Your challenges:</h3>
-    <ul>
-      <% @challenges.each do |challenge| %>
-      <li><%= link_to challenge.name, challenge_path(challenge)%></li>
-      <% end %>  </ul>
+
+      <h3> <%= link_to "Go to all your challenges", user_achievements_path(current_user)%></h3>
+
+      <% end %>
     </div>
-    <% end %>
-    <div class="button">
-      <%= link_to "Edit your profile", edit_user_profile_path(current_user, current_user.profile)%>
+  <div class="button">
+      <%= link_to "Edit your profile", edit_profile_path(current_user.profile)%>
     </div>
   </div>
+<% end %>
+
+
 
 <%= content_for(:after_js) do %>
 
