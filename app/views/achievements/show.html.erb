@@ -1,3 +1,6 @@
+<% if current_user && @user == current_user %>
+
+
 <h1> <%= @achievement.challenge.name %></h1>
 
 
@@ -63,6 +66,14 @@
 <% end %>
 
 
+<% elsif current_user %>
+
+Whoops, did you get lost?
+
+<% else %>
+
+You cannot access this page!
 
 
 
+<% end %>

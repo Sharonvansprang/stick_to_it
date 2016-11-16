@@ -1,4 +1,9 @@
 <div class="background-new questions text-center profile"">
+
+<% if current_user && current_user.profile.nil? %>
+
+
+
   <h2>Welcome <%=current_user.first_name %>   <%=current_user.last_name %>!</h2>
   <h3>Please fill in the following details to make your profile complete. </h3> <h3>Some questions you could answer in your bio:</h3>
 
@@ -27,6 +32,20 @@
    </div>
  </div>
 </section>
+
+
+<% elsif current_user %>
+
+You already have a profile, <%= current_user.first_name %> <%= current_user.last_name %>.
+ <%= link_to "Go to your profile", profile_path(current_user.profile)  %>
+
+
+<% else %>
+
+You cannot access this page
+
+<% end %>
+
 </div>
 
 
