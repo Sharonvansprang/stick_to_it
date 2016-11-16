@@ -1,13 +1,11 @@
 class Achievement < ApplicationRecord
   belongs_to :user
-  belongs_to :buddy_achievement, class_name: 'Achievement', foreign_key: :buddy_achievement_id
+  belongs_to :buddy_achievement, class_name: 'Achievement'#, foreign_key: :buddy_achievement_id
   belongs_to :challenge
   has_many :progresses
 
   validates :startdate, presence: true
-  validate :start_date_valid?, :id_unique?
-  # validates :buddy_achievement_id
-  # , exclusion: { in: [:id] }
+  validate :start_date_valid?, :not_own_buddy?
 
 
   private
@@ -18,20 +16,19 @@ class Achievement < ApplicationRecord
 
     if startdate < Date.today
       errors.add(:startdate, "You can't retroactively start a challenge!")
+      return false
     end
+    true
   end
 
 
-  # def id_unique?
-  #   if self.buddy_achievement == self
-  #     errors.add(:buddy_achievement, "You can't retroactively start a challenge!")
-  #     return false
-  #   else
-  #     return true
-  #   end
-  # end
-
-
+  def not_own_buddy?
+    if persisted? && buddy_achievement_id == self.id
+      errors.add(:buddy_achievement, "You can't be your own buddy!")
+      return false
+    end
+    true
+  end
 
 end
 
