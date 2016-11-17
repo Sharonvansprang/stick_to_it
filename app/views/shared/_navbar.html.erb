@@ -10,7 +10,7 @@
 
    <ul>
     <li><div class="user-avatar">
-      <% if current_user.profile == nil && current_user.facebook_picture_url == nil %>
+      <% if current_user.profile == nil || current_user.facebook_picture_url == nil %>
       <%= image_tag "placeholder.png", class: "avatar-nav"%>
       <% elsif current_user.profile.photo != nil %>
       <%= cl_image_tag current_user.profile.photo.path, gravity: :face, class: "avatar-nav" %>

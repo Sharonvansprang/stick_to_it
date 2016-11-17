@@ -9,11 +9,9 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, uniqueness: true, presence:true
 
-
   has_one :profile, dependent: :destroy
   has_many :achievements, dependent: :destroy
   has_many :challenges, through: :achievements
-
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice('provider', 'uid')
@@ -34,4 +32,5 @@ class User < ApplicationRecord
 
     user
   end
+
 end
