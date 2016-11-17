@@ -1,16 +1,24 @@
 class Achievement < ApplicationRecord
   belongs_to :user
-  belongs_to :buddy_achievement, class_name: 'Achievement'#, foreign_key: :buddy_achievement_id
+  belongs_to :buddy_achievement, class_name: 'Achievement',  inverse_of: :achievement #, foreign_key: :buddy_achievement_id
   belongs_to :challenge
   has_many :progresses, dependent: :destroy
 
   validates :startdate, presence: true
   validates :challenge, uniqueness: {scope: :user}
-
   validate :start_date_valid?, :not_own_buddy?
 
+  after_destroy :remove_from_buddy
 
   private
+
+  def remove_from_buddy
+    if buddy_achievement
+      buddy_achievement.buddy_achievement_id = nil
+      buddy_achievement.save
+    end
+    true
+  end
 
   def start_date_valid?
 
