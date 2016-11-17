@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117105402) do
+ActiveRecord::Schema.define(version: 20161117154344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,10 +60,29 @@ ActiveRecord::Schema.define(version: 20161117105402) do
     t.index ["life_goal_id"], name: "index_challenges_on_life_goal_id", using: :btree
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "primary_achievement_id"
+    t.integer  "secondary_achievement_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["primary_achievement_id"], name: "index_conversations_on_primary_achievement_id", using: :btree
+    t.index ["secondary_achievement_id"], name: "index_conversations_on_secondary_achievement_id", using: :btree
+  end
+
   create_table "life_goals", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "conversation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -112,10 +131,11 @@ ActiveRecord::Schema.define(version: 20161117105402) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "achievements", "achievements", column: "buddy_achievement_id"
   add_foreign_key "achievements", "challenges"
   add_foreign_key "achievements", "users"
   add_foreign_key "challenges", "life_goals"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "progresses", "achievements"
 end
