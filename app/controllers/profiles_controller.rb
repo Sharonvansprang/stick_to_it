@@ -20,6 +20,7 @@ end
 def show
   @user = @profile.user
   @challenges = @user.challenges
+  @achievements = Achievement.where(user: @user)
 end
 
 def edit
