@@ -1,0 +1,6 @@
+
+<% @blogs.each do |blog| %>
+<%= blog.title %>
+<%= blog.intro %>
+<%= link_to "read more..", blog_path(blog)%>
+<% end %>

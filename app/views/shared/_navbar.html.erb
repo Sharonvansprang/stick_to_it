@@ -47,7 +47,7 @@
    </div>
    <ul>
      <li><%= link_to "Home", root_path %> </li>
-     <li><iframe class="btn" frameborder="0" border="0" scrolling="no" allowtransparency="true" height="36" src="https://platform.tumblr.com/v2/follow_button.html?type=follow-blog&amp;tumblelog=sticktoit&amp;color=blue"></iframe></li>
+     <li><%= link_to "Blog", blogs_path %></li>
      <li> <%= link_to t(".sign_in", default: "Login"), new_user_session_path %> </li>
    </ul>
  </div>
