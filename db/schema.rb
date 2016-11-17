@@ -18,10 +18,11 @@ ActiveRecord::Schema.define(version: 20161117105402) do
   create_table "achievements", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "challenge_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.date     "startdate"
     t.integer  "buddy_achievement_id"
+    t.boolean  "active",               default: true, null: false
     t.index ["buddy_achievement_id"], name: "index_achievements_on_buddy_achievement_id", using: :btree
     t.index ["challenge_id"], name: "index_achievements_on_challenge_id", using: :btree
     t.index ["user_id"], name: "index_achievements_on_user_id", using: :btree
