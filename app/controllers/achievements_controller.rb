@@ -16,6 +16,8 @@ class AchievementsController < ApplicationController
     @progress_today = Progress.find_by(achievement: @achievement, day: Date.today)
     @buddy_achievement = @achievement.buddy_achievement
     @buddy_progress_today =  Progress.find_by(achievement: @buddy_achievement, day: Date.today)
+    @progresses = Progress.where(achievement: @achievement)
+    @progresses_buddy = Progress.where(achievement: @buddy_achievement)
   end
 
   def new
@@ -28,10 +30,8 @@ class AchievementsController < ApplicationController
     @achievement = Achievement.new(achievement_params)
     @achievement.user = current_user
     @achievement.challenge = @challenge
-    if @achievement.save && current_user.profile != nil
-      redirect_to profile_path(current_user.profile)
-    elsif @achievement.save
-      redirect_to root_path
+    if @achievement.save
+      redirect_to user_achievements_path(current_user)
     else
       render :new
     end

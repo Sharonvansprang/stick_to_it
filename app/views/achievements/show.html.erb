@@ -6,6 +6,10 @@
 
 <p> <%= @achievement.startdate %> </p>
 
+<% @progresses.each do |progress| %>
+<%= progress.mood %>
+<% end %>
+
 <% if @progress_today.nil? %>
 
  <%= simple_form_for [current_user, @achievement, @progress] do |f| %>
@@ -35,11 +39,28 @@
 
 <br>
 
+<% if @achievement.buddy_achievement == nil %>
+
+<h4> You do not have buddy yet! </h4>
+
+
+<% else %>
 
 
 <h4> Your buddy:
 
 <%= @buddy_achievement.user.first_name %> <%= @buddy_achievement.user.last_name %></h4>
+
+
+
+These are all the buddy moods!
+
+<ul>
+<% @progresses_buddy.each do |progress| %>
+<li>  <%= progress.mood %></li>
+<% end %>
+
+</ul>
 
 
 <% if @buddy_progress_today.nil? %>
@@ -66,6 +87,9 @@
 <% end %>
 
 
+<% end %>
+
+
 <% elsif current_user %>
 
 Whoops, did you get lost?
@@ -73,7 +97,6 @@ Whoops, did you get lost?
 <% else %>
 
 You cannot access this page!
-
 
 
 <% end %>
