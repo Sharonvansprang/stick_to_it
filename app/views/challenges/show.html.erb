@@ -1,4 +1,8 @@
 
+<% if current_user %>
+
+
+
 <div class="text-center">
   <h1>
     <%= @challenge.name %></h1>
@@ -30,3 +34,10 @@
   <% end %>
 
 </div>
+
+
+<% else %>
+
+You cannot access this page!
+
+<% end %>

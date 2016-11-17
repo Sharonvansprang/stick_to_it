@@ -1,6 +1,7 @@
-
 <div class="profile-edit-container text-center background-edit">
-  <h1> <%= current_user.first_name %>
+<% if current_user && @user == current_user%>
+
+<h1> <%= current_user.first_name %>
     <%= current_user.last_name %></h1>
     <div class="profile-edit-form">
 
@@ -11,5 +12,20 @@
       <h5> <%= f.submit "update your bio" %></h5>
       <% end %>
     </div>
+
+
+<% elsif current_user %>
+
+Whoops, did you get lost?
+
+
+<% else %>
+
+You cannot access this page
+
+
+<% end %>
+
+
   </div>
 

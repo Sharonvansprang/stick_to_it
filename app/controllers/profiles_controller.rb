@@ -23,6 +23,7 @@ def show
 end
 
 def edit
+  @user = @profile.user
 end
 
 def update

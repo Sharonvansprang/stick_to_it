@@ -8,7 +8,7 @@ before_action :find_goal, only: [:show]
 
   def show
     @challenges = @life_goal.challenges
-    @achievements = current_user.achievements
+    # @achievements = current_user.achievements
     @achievement = Achievement.new
   end
 

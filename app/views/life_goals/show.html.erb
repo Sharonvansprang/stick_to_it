@@ -1,25 +1,30 @@
 <div class="banner-life-goals">
+      <% if current_user %>
+
   <div class="row">
     <div class="container">
-      <h1><%= @life_goal.name %></h1>
-<br/>
-<br/>
-      <h2>These are all the challenges you can still sign up for!</h2>
-
-      <% @challenges.each do |challenge| %>
-      <% if !current_user.challenges.include?(challenge)%>
-      <div class="col-sm-12 col-md-6">
-        <div class="card">
-          <h2><%= challenge.name %> </h2>
-          <%= challenge.description %>
-          <h3><%= link_to "Read more.. #{challenge.name}", challenge_path(challenge) %></h3>
-
-        </div>
-      </div>
-                    <% end %>
-      <% end %>
+        <h1><%= @life_goal.name %></h1>
+          <br/>
+          <br/>
+        <h2>These are all the challenges you can still sign up for!</h2>
+          <% @challenges.each do |challenge| %>
+          <% if !current_user.challenges.include?(challenge)%>
+          <div class="col-sm-12 col-md-6">
+            <div class="card">
+              <h2><%= challenge.name %> </h2>
+              <%= challenge.description %>
+              <h3><%= link_to "Read more.. #{challenge.name}", challenge_path(challenge) %></h3>
+            </div>
+          </div>
+              <% end %>
+            <% end %>
     </div>
   </div>
+
+
+        <% else %>
+        You cannot access this page
+        <% end %>
 </div>
 
 

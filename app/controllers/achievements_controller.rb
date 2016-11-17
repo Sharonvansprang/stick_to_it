@@ -4,10 +4,11 @@ class AchievementsController < ApplicationController
   before_action :find_challenge, only: [:new, :create]
   before_action :find_achievement, only: [:show, :edit, :update]
   before_action :find_buddy_achievement, only: [:update]
+  before_action :find_user, only: [:index, :show, :edit]
 
 
   def index
-    @achievements = current_user.achievements
+    # @achievements = current_user.achievements
   end
 
   def show
@@ -15,7 +16,6 @@ class AchievementsController < ApplicationController
     @progress_today = Progress.find_by(achievement: @achievement, day: Date.today)
     @buddy_achievement = @achievement.buddy_achievement
     @buddy_progress_today =  Progress.find_by(achievement: @buddy_achievement, day: Date.today)
-
   end
 
   def new
@@ -70,6 +70,10 @@ end
 
   def achievement_params
     params.require(:achievement).permit(:startdate, :enddate, :challenge, :user)
+  end
+
+  def find_user
+    @user = User.find(params[:user_id])
   end
 
 end
