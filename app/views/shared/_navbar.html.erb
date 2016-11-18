@@ -31,6 +31,7 @@
       <%= link_to "Make a profile", new_profile_path  %>
       <% else %>
       <%= link_to "My Profile", profile_path(current_user.profile) %>
+      <li> <%= link_to "Blog", blogs_path %> </li>
       <% end %>
     </li>
     <li><%= link_to destroy_user_session_path, method: :delete do %>
