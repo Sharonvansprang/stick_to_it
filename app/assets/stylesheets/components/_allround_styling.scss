@@ -1,15 +1,20 @@
 // ALLROUND STYLING CLASSES
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 .card {
   background-color: #fff;
+  border-radius: 3px;
+
   padding: 40px;
+  margin: 10px;
+  width: 550px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 3px;
-  margin-bottom: 20px;
 }
+
 
 .overallcontainer{
   display: flex;
@@ -26,25 +31,67 @@ a:hover {
   text-decoration: none;
 }
 
-.banner-general {
-  color: #333333;
-  text-align: center;
-  height: 100vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+// @KITTY re position the blog-banner class
+.blog-banner {
+  background-image: image-url('pink_rice.png');
   background-size: cover !important;
+  color: #333333; //<- blog-card Titles
+  padding-top: 75px;
+  text-align: center;
+}
+
+.blog-banner h1 {
+  margin-bottom: 25px;
+}
+// ///////////////////////////////////////////
+
+.banner-general {
+  background-image: image-url('pink_rice.png');
+  background-size: cover !important;
+  color: #333333; //<- blog-card Titles
+  padding-top: 75px;
+  text-align: center;
+
+  // height: 100vh; <--- watch out with 100vh = 100% screen size! sometimes u need more.
+  height: 800px;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: image-url('pink_rice.png');
 }
 
 .banner-general .card {
-  width: 30%;
+  // width: 30%;
+}
+
+// .card a = styling home page knoppen.
+.banner-general .card a {
+    border-bottom: 2px solid #333;
+    padding: 20px;
+    color: #333;
+    font-size: 23px;
+    color: white;
+    font-family: "Quicksand";
+    font-weight: 400;
+    width: 450px;
+    margin-bottom: 21px;
+    background-color: #EE7D9A;
+    border: 1px solid #EE7D9A;
+    text-shadow: 0px 2px 3px #222;
+    border-radius: 3px;
+    box-shadow: 0px 3px 5px rgba(34, 34, 34, 0.17);
+}
+
+.banner-general .card a:hover {
+  // font-size: 21px;
+  transition-timing-function: ease-in-out;
+  transition: 1s;
+  background-color: #c85b5b;
 }
 
 .banner-general a:hover {
-  font-size: 21px;
+  // font-size: 21px;
   transition-timing-function: ease-in-out;
   transition: 1s;
 }
@@ -69,9 +116,9 @@ a:hover {
 }
 
 .banner-general p {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: lighter;
-  color: rgba(255, 255, 255, 0.7);
+  color: #222;
   margin-bottom: 20px;
 }
 
