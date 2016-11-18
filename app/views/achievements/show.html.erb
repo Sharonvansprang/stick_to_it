@@ -33,6 +33,7 @@
 <% if @progress_today.done %>
 <p>You have completed your task of the day!</p>
 
+
 <% end %>
 
 <% end %>
@@ -88,6 +89,50 @@ These are all the buddy moods!
 
 
 <% end %>
+
+
+
+<%= simple_form_for [current_user, @achievement, @message] do |f| %>
+<%= f.input :text %>
+<%= f.input :url %>
+<%= f.input :photo, as: :attachinary %>
+<%= f.submit "send your buddy a message!", class: "btn btn-primary" %>
+
+<% end %>
+
+
+
+
+<% if @messages_buddy !=nil %>
+
+<% @messages_buddy.each do |message| %>
+
+<%= message.text%>
+<%= message.url %>
+<% if message.photo? %>
+  <%= cl_image_tag message.photo.path, width: 200, height: 300, crop: :fill %>
+<% end %>
+
+<% end %>
+
+<% end %>
+
+
+
+<% if @messages !=nil %>
+
+<% @messages.each do |message| %>
+
+<%= message.text%>
+<%= message.url %>
+<% if message.photo? %>
+  <%= cl_image_tag message.photo.path, width: 200, height: 300, crop: :fill %>
+<% end %>
+
+<% end %>
+
+<% end %>
+
 
 
 <% elsif current_user %>

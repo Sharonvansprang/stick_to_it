@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117154344) do
+ActiveRecord::Schema.define(version: 20161118133610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 20161117154344) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string   "text"
+    t.string   "url"
+    t.string   "photo"
+    t.integer  "achievement_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["achievement_id"], name: "index_messages_on_achievement_id", using: :btree
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.text     "bio"
     t.string   "picture"
@@ -115,6 +125,7 @@ ActiveRecord::Schema.define(version: 20161117154344) do
   add_foreign_key "achievements", "challenges"
   add_foreign_key "achievements", "users"
   add_foreign_key "challenges", "life_goals"
+  add_foreign_key "messages", "achievements"
   add_foreign_key "profiles", "users"
   add_foreign_key "progresses", "achievements"
 end
