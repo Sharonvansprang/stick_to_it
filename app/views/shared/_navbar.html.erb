@@ -26,25 +26,25 @@
       <% end %>
     </div>
 
-    <span> <%= current_user.first_name %>    <%= current_user.last_name   %> </span></li>
-    <li><%= link_to "My Challenges", user_achievements_path(current_user) %>
+    <span class= "font"> <%= current_user.first_name %>    <%= current_user.last_name   %> </span></li>
+    <li class= "button-navbar"><%= link_to "My Challenges", user_achievements_path(current_user) %>
     </li>
 
 
-    <li>
+    <li class= "button-navbar">
       <% if current_user.profile == nil %>
       <%= link_to "Make a profile", new_profile_path  %>
       <% else %>
       <%= link_to "My Profile", profile_path(current_user.profile) %>
-      <li> <%= link_to "Blog", blogs_path %> </li>
+      <li class= "button-navbar"> <%= link_to "Blog", blogs_path %> </li>
       <% end %>
     </li>
-    <li>
+    <li class= "button-navbar">
       <%= link_to edit_user_registration_path(current_user) do %>
        <i class="fa fa-user-circle-o"></i>  <%= t(".profile", default: "Account settings") %>
        <% end %>
     </li>
-    <li><%= link_to destroy_user_session_path, method: :delete do %>
+    <li class= "button-navbar"><%= link_to destroy_user_session_path, method: :delete do %>
       <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
       <% end %></li>
     </ul>
@@ -57,9 +57,9 @@
      <% end %>
    </div>
    <ul>
-     <li><%= link_to "Home", root_path %> </li>
-     <li><%= link_to "Blog", blogs_path %></li>
-     <li> <%= link_to t(".sign_in", default: "Login"), new_user_session_path %> </li>
+     <li class= "button-navbar"><%= link_to "Home", root_path %> </li>
+     <li class= "button-navbar"><%= link_to "Blog", blogs_path %></li>
+     <li class= "button-navbar"> <%= link_to t(".sign_in", default: "Login"), new_user_session_path %> </li>
    </ul>
  </div>
  <% end %>
