@@ -1,4 +1,5 @@
 // ALLROUND STYLING CLASSES
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 .card {
   background-color: #fff;
@@ -69,21 +70,28 @@ a:hover {
     border-bottom: 2px solid #333;
     padding: 20px;
     color: #333;
-    font-size: 20px;
+    font-size: 23px;
     color: white;
-    font-family: "Raleway";
-    font-weight: 200;
+    font-family: "Quicksand";
+    font-weight: 400;
     width: 450px;
     margin-bottom: 21px;
-    background-color: #fe4183;
-    border: 1px solid #fe4183;
+    background-color: #EE7D9A;
+    border: 1px solid #EE7D9A;
     text-shadow: 0px 2px 3px #222;
     border-radius: 3px;
     box-shadow: 0px 3px 5px rgba(34, 34, 34, 0.17);
 }
 
+.banner-general .card a:hover {
+  // font-size: 21px;
+  transition-timing-function: ease-in-out;
+  transition: 1s;
+  background-color: #c85b5b;
+}
+
 .banner-general a:hover {
-  font-size: 21px;
+  // font-size: 21px;
   transition-timing-function: ease-in-out;
   transition: 1s;
 }
