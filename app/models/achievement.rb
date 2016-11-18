@@ -3,6 +3,7 @@ class Achievement < ApplicationRecord
   belongs_to :buddy_achievement, class_name: 'Achievement', foreign_key: :buddy_achievement_id
   belongs_to :challenge
   has_many :progresses, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   validates :startdate, presence: true
   validates :challenge, uniqueness: {scope: :user}

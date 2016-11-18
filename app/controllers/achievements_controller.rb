@@ -18,6 +18,10 @@ class AchievementsController < ApplicationController
     @buddy_progress_today =  Progress.find_by(achievement: @buddy_achievement, day: Date.today)
     @progresses = Progress.where(achievement: @achievement)
     @progresses_buddy = Progress.where(achievement: @buddy_achievement)
+    @message = Message.new
+    @messages = Message.where(achievement: @achievement)
+    @messages_buddy = Message.where(achievement: @buddy_achievement)
+
   end
 
   def new
@@ -75,6 +79,7 @@ end
   def find_user
     @user = User.find(params[:user_id])
   end
+
 
 end
 
