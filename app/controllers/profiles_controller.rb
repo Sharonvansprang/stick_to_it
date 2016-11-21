@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
 
+
+skip_before_action :check_profile
 before_action :find_profile, only: [:show, :edit, :update]
 
 def new

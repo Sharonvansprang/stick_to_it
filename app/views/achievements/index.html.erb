@@ -13,11 +13,15 @@
 <%= achievement.challenge.name %>
 <%= link_to "Find a buddy!", edit_user_achievement_path(current_user, achievement)  %>
 
+<% elsif achievement.buddy_achievement.user.profile.nil?%>
+<%= link_to achievement.challenge.name, user_achievement_path(current_user, achievement) %>
+  Your buddy is:
+  <%= "#{achievement.buddy_achievement.user.first_name}#{achievement.buddy_achievement.user.last_name}"%>
+
 <% else %>
 <%= link_to achievement.challenge.name, user_achievement_path(current_user, achievement) %>
   Your buddy is:
   <%= link_to "#{achievement.buddy_achievement.user.first_name}#{achievement.buddy_achievement.user.last_name}", profile_path(achievement.buddy_achievement.user.profile)  %>
-
 
 <% end %>
 

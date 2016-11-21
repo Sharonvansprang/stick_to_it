@@ -2,162 +2,248 @@
 
   <% if current_user && @user == current_user %>
 
+
+<div class="banner-cloud">
+
+
   <h1> <%= @achievement.challenge.name %></h1>
 
-  <h3><em> This challenge started on: <%= @achievement.startdate %> </em>  </h3>
+  <h3><em> This challenge started on: <%= @achievement.startdate.to_formatted_s(:long_ordinal)%> </em>  </h3>
   <br/>
-  <br/>
-  <br/>
-
-  <% if @progress_today.nil? %>
-
-  <%= simple_form_for [current_user, @achievement, @progress] do |f| %>
-  <%= f.hidden_field :day, value: Date.today%>
-  <%= f.input :mood, collection: Progress::MOOD, include_blank: false %>
-  <%= f.input :done, label: "Have you finished your task of the day?" %>
-  <%= f.input :log %>
-  <%= f.submit "update your daily progress", class: "navbar-wagon-item navbar-wagon-link button-log" %>
-  <% end %>
-
+  <% if @achievement.buddy_achievement == nil %>
+    <h3> You do not have buddy yet! </h3>
   <% else %>
-  <h3>This is your progress for today</h3>
-
-  <p>Your thoughts:
-    <%= @progress_today.log %></p>
-
-
-    <p>Your mood:
-      <%= @progress_today.mood %></p>
-
-      <% if @progress_today.done %>
-      <p>You have completed your task of the day!</p>
-
-
+    <h4>
+      <% if @buddy_achievement.user.provider == "facebook" %>
+        <%= image_tag @buddy_achievement.user.facebook_picture_url, class: "avatar-achievements" %>
+      <% elsif @buddy_achievement.user.profile.photo != nil %>
+        <%= cl_image_tag @buddy_achievement.user.profile.photo.path, gravity: :face, class: "avatar-achievements" %>
       <% end %>
-
-      <% end %>
-
-      <br>
-
-<% if @achievement.buddy_achievement == nil %>
-
-      <h3> You do not have buddy yet! </h3>
+    Your buddy: <%= @buddy_achievement.user.first_name %> <%= @buddy_achievement.user.last_name %>
+    </h4>
+  <% end %>
+</div>
+<br>
+<br>
 
 
-      <% else %>
+This challenge has been going:
+
+<%= @how_many_days.to_i %> days.
 
 
-      <h4>
-      Your buddy:
-
-        <%= @buddy_achievement.user.first_name %> <%= @buddy_achievement.user.last_name %>
-
-        </h4>
+<%= @progresses.count %>
 
 
-<% if @buddy_progress_today.nil? %>
-
-<p>Your buddy has not posted anything yet today!</p>
-
-<% else %>
+<%= @progresses_buddy.count %>
 
 
-<h2>This is their progress for today</h2>
 
-<p>Their thoughts:
-  <%= @buddy_progress_today.log %></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-5">
+
+        <% if @progress_today.nil? %>
+
+        <button type="button" class="navbar-wagon-item navbar-wagon-link button-log" data-toggle="modal" data-target="#chatModal">
+          Update your progress for the day!
+        </button>
+        <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Tell us about your day!</h4>
+              </div>
+              <div class="modal-body">
+                <%= simple_form_for [current_user, @achievement, @progress] do |f| %>
+                <%= f.hidden_field :day, value: Date.today%>
+                <%= f.input :mood, label: "What is your mood?", collection: Progress::MOOD, include_blank: false %>
+                <%= f.input :done, label: "Have you finished your task of the day?" %>
+                <%= f.input :log %>
+                <%= f.submit "update your daily progress", class: "navbar-wagon-item navbar-wagon-link button-log" %>
+                <% end %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <% else %>
+        <h3>Your progress today</h3>
+
+        <h5>Your thoughts:
+          <%= @progress_today.log %></h5>
+        <h5>Your mood:
+            <%= @progress_today.mood %></h5>
+
+            <% if @progress_today.done %>
+            <h5>You have completed your task of the day!</h5>
 
 
-  <p>Their mood:
-    <%= @buddy_progress_today.mood %></p>
+            <% end %>
 
-    <% if @buddy_progress_today.done %>
-    <p>They have completed their task of the day!</p>
+            <% end %>
 
-    <% end %>
+          </div>
 
-    <% end %>
+          <div class="col-xs-7">
 
 
-    <br/>
-    <br/>
+            <% if @achievement.buddy_achievement == nil %>
 
-    <h3>Chat with your buddy!</h3>
+            <h3> You do not have buddy yet! </h3>
+
+
+            <% else %>
+
+            <% if @buddy_progress_today.nil? %>
+
+ <h5><div class="buddy">
+
+
+            <em>   Your buddy has not posted anything today!</em></div>
+</h5>
+            <% else %>
+
+
+            <h3>Progress buddy</h3>
+
+            <h5>Their thoughts:
+              <%= @buddy_progress_today.log %></h5>
+
+
+              <h5>Their mood:
+                <%= @buddy_progress_today.mood %></h5>
+
+                <% if @buddy_progress_today.done %>
+                <h5>They have completed their task of the day!</h5>
+
+                <% end %>
+
+                <% end %>
+
+            <% end %>
+
+              </div>
+            </div>
+          </div>
+          <br/>
+          <br/>
+
+
+
+<div class="wrapper-achievements banner-cloud">
+
 
 
 
 <div class="container">
+
 <div class="row">
-    <%= simple_form_for [current_user, @achievement, @message] do |f| %>
-<div class="col-xs-6">
-
-    <%= f.input :text %>
-    <%= f.input :url %>
-    <%= f.input :photo, as: :attachinary %>
-    <%= f.submit "send your buddy a message!", class: "navbar-wagon-item navbar-wagon-link button-log" %>
-</div>
-    <% end %>
 
 
-
-
-    <% if @messages !=nil %>
-
+<!-- <h4> The messages you sent to your buddy!</h4>
+-->
+ <% if !@messages.empty? %>
+<div class="col-xs-7">
+ <div class="some-container">
+  <ul>
     <% @messages.each do |message| %>
-<div class="col-xs-6">
-<h4> The messages you sent to your buddy!</h4>
+      <% if message.achievement.user == current_user %>
+  <div class="links">
 
-    <%= message.text%>
-    <%= message.url %>
-    <% if message.photo? %>
-    <%= cl_image_tag message.photo.path, width: 200, height: 300, crop: :fill %>
-    <% end %>
+<h5>
+
+    <li><%= message.created_at.strftime("%R")%>  <strong> - You </strong> </li>
+     <br>
+     <li>   <%= message.text%></li>
+      <li>  <%= message.url %></li>
+
+      <% if message.photo? %>
+      <li> <%= cl_image_tag message.photo.path, width: 200, height: 200, crop: :fill %></li>
+      <% end %>
+</h5></div>
+
+      <% else %>
+
+      <div class="rechts"><h5>
+     <li>
+
+
+<% if message.created_at > Date.today %>
+
+     <%= message.created_at.strftime("%R") %>
+
+
+<% else %>
+
+<%= message.created_at.strftime("%A") %>
+
+
+<% end %>
+
+
+    <strong> <%= message.achievement.user.first_name%></strong>   </li><br>
+
+      <li>   <%= message.text%></li>
+      <li>  <%= message.url %></li>
+
+      <% if message.photo? %>
+      <li> <%= cl_image_tag message.photo.path, width: 200, height: 200, crop: :fill %></li>
+      <% end %>
+</h5></div>
+      <% end %>
+      <% end %>
+
+    </ul>
+</div>
 
 </div>
-    <% end %>
+<% else %>
 
-    <% end %>
+<div class="col-xs-7">
 
-</div>
-
-<div class="row">
-    <% if @messages_buddy !=nil %>
-
-    <% @messages_buddy.each do |message| %>
-<div class="col-xs-6">
-
-<h4> The messages your buddy sent you! </h4>
-
-    <%= message.text%>
-    <%= message.url %>
-    <% if message.photo? %>
-    <%= cl_image_tag message.photo.path, width: 200, height: 300, crop: :fill %>
-    <% end %>
-</div>
-
-    <% end %>
-
-    <% end %>
+teskts
 
 </div>
 
+<% end %>
 
+
+<div class="col-xs-5">
+
+<div class="new-message">
+<h3>Chat with your buddy!</h3>
+<br>
+<br>
+<%= simple_form_for [current_user, @achievement, @message] do |f| %>
+
+  <%= f.input :text %>
+  <%= f.input :url %>
+  <%= f.input :photo, as: :attachinary %>
+  <h5><%= f.submit "send your buddy a message!", class: "button-log" %></h5>
+</div>
+<% end %>
+</div>
+</div>
+
+</div>
 
 
 </div>
 
 
-    <% end %>
+<% elsif current_user %>
+
+Whoops, did you get lost?
+
+<% else %>
+
+You cannot access this page!
 
 
-    <% elsif current_user %>
-
-    Whoops, did you get lost?
-
-    <% else %>
-
-    You cannot access this page!
-
-
-    <% end %>
-  </div>
+<% end %>
+</div>

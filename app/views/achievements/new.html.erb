@@ -6,7 +6,7 @@
 <h2>These are the other users that also want to take on this challenge: </h2>
 
 <% @achievements.each do |achievement| %>
-<%= achievement.startdate %>
+<%= achievement.startdate.to_formatted_s(:long_ordinal) %>
 <%= achievement.user.first_name %>
 <%= achievement.user.last_name %>
 
@@ -19,6 +19,7 @@
 <% end %>
 
 <%= simple_form_for [@challenge, @achievement] do |f| %>
+<%= f.error_notification %>
 <%= f.input :startdate, label: "On which day do you want to start this challenge?", selected: Date.today%>
 <%= f.submit "start this challenge", class: "btn btn-primary" %>
 <% end %>

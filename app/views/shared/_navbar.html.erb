@@ -32,7 +32,7 @@
 
 
     <li class= "button-navbar">
-      <% if current_user.profile == nil %>
+      <% if current_user.profile == nil || current_user.profile.invalid? %>
       <%= link_to "Make a profile", new_profile_path  %>
       <% else %>
       <%= link_to "My Profile", profile_path(current_user.profile) %>

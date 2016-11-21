@@ -12,6 +12,9 @@ class AchievementsController < ApplicationController
   end
 
   def show
+
+    @how_many_days = Date.today - @achievement.startdate
+
     @progress = Progress.new
     @progress_today = Progress.find_by(achievement: @achievement, day: Date.today)
     @buddy_achievement = @achievement.buddy_achievement
@@ -19,8 +22,9 @@ class AchievementsController < ApplicationController
     @progresses = Progress.where(achievement: @achievement)
     @progresses_buddy = Progress.where(achievement: @buddy_achievement)
     @message = Message.new
-    @messages = Message.where(achievement: @achievement)
-    @messages_buddy = Message.where(achievement: @buddy_achievement)
+    @messages = Message.my_or_my_buddies(@achievement, @buddy_achievement).sorted
+    # raise "Paulien"
+    # @messages_buddy = Message.where(achievement: @buddy_achievement)
 
   end
 
