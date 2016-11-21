@@ -173,6 +173,18 @@ color: white;
   color: black
 }
 
+// put this in the error message
+  .backgroundImage {
+  background-image: image-url("error_message_thunder.jpg");
+  background-size: cover !important;
+  text-align: center;
+  height: auto;
+  padding-top: 29px;
+  padding-bottom: 212px;
+  margin: 200px;
+  }
+
+
 .button-log {
   margin-left: 10px;
   padding: 12px 20px;
@@ -187,6 +199,10 @@ color: white;
   color: white;
   background: #EE7D9A;
   border-color: #EE7D9A;
+}
+.button-adjust {
+    position: relative;
+    top: 150px;
 }
 
 .headerhome h1{
