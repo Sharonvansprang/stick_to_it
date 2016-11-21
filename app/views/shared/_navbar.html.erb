@@ -1,35 +1,18 @@
-<script id="tumblr-js" async src="https://assets.tumblr.com/share-button.js"></script>
 <nav>
   <% if user_signed_in? %>
   <div class="bottom-nav">
-    <div class="logo-container">
-     <%= link_to root_path, class: "stick-to-it" do %>
-     <%= image_tag("stick_to_it.png", class: "logo-nav") %>
-     <% end %>
-   </div>
+  </div>
+  <ul class="hide-nav-desktop">
 
-   <ul>
-    <li><div class="user-avatar">
 
-      <% if current_user.profile == nil && current_user.facebook_picture_url != nil %>
-      <%= image_tag current_user.facebook_picture_url, class: "avatar-nav" %>
-      <% elsif current_user.profile == nil %>
-      <%= image_tag "placeholder.png", class: "avatar-nav"%>
-      <% elsif current_user.profile.photo != nil %>
-      <%= cl_image_tag current_user.profile.photo.path, gravity: :face, class: "avatar-nav" %>
-      <% elsif current_user.facebook_picture_url !=nil %>
-      <%= image_tag current_user.facebook_picture_url, class: "avatar-nav" %>
-      <% elsif current_user.facebook_picture_url == nil %>
-      <%= image_tag "placeholder.png", class: "avatar-nav"%>
-      <% elsif current_user.profile.photo == nil %>
-      <%= image_tag "placeholder.png", class: "avatar-nav"%>
+    <li>
+      <!-- <div class="logo-container"> -->
+
+      <%= link_to root_path, class: "stick-to-it" do %>
+      <%= image_tag("stick_to_it.png", class: "logo-nav") %>
       <% end %>
-    </div>
-
-    <span class= "font"> <%= current_user.first_name %>    <%= current_user.last_name   %> </span></li>
-    <li class= "button-navbar"><%= link_to "My Challenges", user_achievements_path(current_user) %>
+      <!-- </div> -->
     </li>
-
 
     <li class= "button-navbar">
       <% if current_user.profile == nil %>
@@ -41,13 +24,62 @@
     </li>
     <li class= "button-navbar">
       <%= link_to edit_user_registration_path(current_user) do %>
-       <i class="fa fa-user-circle-o"></i>  <%= t(".profile", default: "Account settings") %>
-       <% end %>
+      <i class="fa fa-user-circle-o"></i>  <%= t(".profile", default: "Account settings") %>
+      <% end %>
     </li>
     <li class= "button-navbar"><%= link_to destroy_user_session_path, method: :delete do %>
       <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
       <% end %></li>
-    </ul>
+
+      <li class= "button-navbar"><%= link_to "My Challenges", user_achievements_path(current_user) %>
+      </li>
+
+      <li>
+        <div class="user-avatar">
+          <% if current_user.profile == nil && current_user.facebook_picture_url != nil %>
+          <%= image_tag current_user.facebook_picture_url, class: "avatar-nav" %>
+          <% elsif current_user.profile == nil %>
+          <%= image_tag "placeholder.png", class: "avatar-nav"%>
+          <% elsif current_user.profile.photo != nil %>
+          <%= cl_image_tag current_user.profile.photo.path, gravity: :face, class: "avatar-nav" %>
+          <% elsif current_user.facebook_picture_url !=nil %>
+          <%= image_tag current_user.facebook_picture_url, class: "avatar-nav" %>
+          <% elsif current_user.facebook_picture_url == nil %>
+          <%= image_tag "placeholder.png", class: "avatar-nav"%>
+          <% elsif current_user.profile.photo == nil %>
+          <%= image_tag "placeholder.png", class: "avatar-nav"%>
+          <% end %>
+          <span class= "font"> <%= current_user.first_name %> </span></li>
+        </div>
+
+      </ul>
+    </div>
+
+    <div style="height: 100px; background-color: blue;" class="hide-nav-mobile">
+     <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <% if current_user.profile == nil && current_user.facebook_picture_url != nil %>
+        <%= image_tag current_user.facebook_picture_url, class: "mobile-avatar dropdown-toggle ", id:"navbar-wagon-menu", "data-toggle" => "dropdown"  %>
+        <% elsif current_user.profile == nil %>
+        <%= image_tag "placeholder.png", class: "mobile-avatar dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% elsif current_user.profile.photo != nil %>
+        <%= cl_image_tag current_user.profile.photo.path, gravity: :face, class: "mobile-avatar dropdown-toggle ", id:"navbar-wagon-menu", "data-toggle" => "dropdown"  %>
+        <% elsif current_user.facebook_picture_url !=nil %>
+        <%= image_tag current_user.facebook_picture_url, class: "mobile-avatar dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown"  %>
+
+        <% elsif current_user.facebook_picture_url == nil %>
+        <%= image_tag "placeholder.png", class: "mobile-avatar dropdown-toggle ", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% elsif current_user.profile.photo == nil %>
+        <%= image_tag "placeholder.png", class: "mobile-avatar dropdown-toggle ", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% end %>
+
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Log Out</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
   <% else %>
   <div class="top-nav">
