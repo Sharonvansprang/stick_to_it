@@ -72,7 +72,7 @@
 <div class="top-nav">
   <div class="logo-container">
    <%= link_to root_path, class: "stick-to-it" do %>
-   <%= image_tag("stick_to_it.png", class: "logo-nav") %>
+   <%= image_tag("stick_to_it.png", class: "top-logo-nav") %>
    <% end %>
  </div>
  <ul>
@@ -88,14 +88,10 @@
 
 
 <div class="hide-nav-mobile">
-  <li>
-    <!-- <div class="logo-container"> -->
+  <%= link_to root_path, class: "stick-to-it" do %>
+  <%= image_tag("stick_to_it.png", class: "logo-mobile-nav") %>
+  <% end %>
 
-    <%= link_to root_path, class: "stick-to-it" do %>
-    <%= image_tag("stick_to_it.png", class: "logo-mobile-nav") %>
-    <% end %>
-    <!-- </div> -->
-  </li>
   <div class="navbar-wagon-item">
     <div class="dropdown">
       <% if current_user.profile == nil && current_user.facebook_picture_url != nil %>
@@ -123,7 +119,6 @@
           <li><%= link_to edit_user_registration_path(current_user) do %>
             <i class="fa fa-user-circle-o"></i>  <%= t(".profile", default: "Account settings") %>
             <% end %></li>
-            <li><a href="#">Log Out</a></li>
           </ul>
         </div>
       </div>

@@ -15,14 +15,24 @@ nav .top-nav {
 nav .top-nav {
   background-color: #fff;
   color: blue;
+
 }
 
+nav .logo-container {
+  height: 60px;
+}
 nav .top-nav ul {
   margin-left: 30%;
   margin-right: 30%;
   margin-top: 20px;
 }
-
+nav .top-logo-nav {
+ height: 140px;
+ width: 140px;
+ position: relative;
+ top: 40px;
+ left: 150px;
+}
 nav .logo-nav {
   height: 130px;
   width: 130px;
@@ -84,9 +94,14 @@ nav .avatar-nav {
 }
 
 .font {
-  font-family: "Quicksand"
+  font-family: "Quicksand";
+  color: black;
 }
 
+span .font:hover {
+  transition: color 0.3s ease;
+  color: #EE7D9A;
+}
 
 @media (max-device-width: 992px){
   .hide-nav-desktop {
@@ -107,6 +122,9 @@ nav span {
 .dropdown {
   display: flex;
   justify-content: flex-end;
+  position: relative;
+  top: -36px;
+  right: 10px
 }
 
 .navbar-wagon-dropdown-menu {
@@ -146,9 +164,9 @@ nav span {
 }
 
 .logo-mobile-nav {
-  height: 70px;
-  width: 70px;
+  height: 90px;
+  width: 90px;
   position: relative;
-  top: -36px;
-
+  top: 45px;
+  right: -10px;
 }
