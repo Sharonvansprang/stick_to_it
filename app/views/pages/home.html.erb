@@ -18,8 +18,67 @@
   </div>
 </section> -->
 
+<div class= "jumbotron text-center">
+ <h1> Life is full of challenges! </h1>
+ <h2> Reach your lifegoals in <em>5 simple steps </em> </h2>
+ </div>
 
-<h2>Hier kan dan dus de gebruiksaanwijzing</h2>
+<div class= "logoiconflex">
+ <%= image_tag 'down.png', class: "logoicon" %>
+</div>
+
+ <div class="container">
+  <div class="row" id="howto-margin">
+    <div class="col-xs-6">
+    <div class="howto-step">
+       <%= image_tag 'list.png', class:"logo" %>
+       <div class= "text">
+         <h2>Step 1: Pick your lifegoal and challenge </h2>
+         <p1>Choose one of the three challenging lifegoals. Are you ready to challenge yourself? Pick a challenge end a startdate</p1>
+       </div>
+     </div>
+   </div>
+
+
+    <div class="col-xs-6">
+      <div class="howto-step">
+     <%= image_tag 'shaking.png', class: "logo" %>
+       <div class= "text">
+       <h2> Step 2: Who is your buddy</h2>
+       <p>Pick a buddy that is already registered, or invite a friend to join you. Make sure to pick the same, challenge and startdate.</p>
+     </div>
+
+</div>
+</div>
+
+     <div class="col-xs-6">
+    <div class="howto-step">
+       <%= image_tag 'trophy.png', class: "logo" %>
+        <div class= "text">
+         <h2>Step 3: Motivate your buddy</h2>
+         <p>Share interesting webpages that can help your buddy to Reach the endgoal. Share funny pictures, have a motivation chat session. Be your buddy's coach</p>
+       </div>
+       </div>
+       </div>
+
+       <div class="col-xs-6">
+        <div class="howto-step">
+        <%= image_tag 'resume.png', class: "logo" %>
+           <div class= "text">
+          <h2>Step 4: Check your progress</h2>
+          <p>check your progress daily, reach your goals and earn badges. Be the best that you can be.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class= "button-steps">
+    <div class= "text-center">
+    <h2><%= link_to 'Get started!', life_goals_path, class: "buttongebruiksaanwijziging" %> </h2></div>
+    </div>
+    </div>
+
+
+
 
 <!-- <div class="text-center life-goals">
 
@@ -98,12 +157,12 @@
         </div>
 
         <div class="content">
-           <h1> Why sign up? </h1>
-          <p> You will receive a monthly newsletter, with tips and tricks to reach your life goal"</p>
-          <!-- Begin MailChimp Signup Form -->
-          <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
-          <style type="text/css">
-            #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:30vw;}
+         <h1> Why sign up? </h1>
+         <p> You will receive a monthly newsletter, with tips and tricks to reach your life goal"</p>
+         <!-- Begin MailChimp Signup Form -->
+         <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+         <style type="text/css">
+          #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:30vw;}
   /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 </style>

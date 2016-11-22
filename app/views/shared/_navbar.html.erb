@@ -1,16 +1,42 @@
-<script id="tumblr-js" async src="https://assets.tumblr.com/share-button.js"></script>
 <nav>
-  <% if user_signed_in? %>
-  <div class="bottom-nav">
-    <div class="logo-container">
-     <%= link_to root_path, class: "stick-to-it" do %>
-     <%= image_tag("stick_to_it.png", class: "logo-nav") %>
-     <% end %>
-   </div>
+  <div class="navbar-container hide-nav-desktop">
 
-   <ul>
-    <li><div class="user-avatar">
+    <div>
+      <%= link_to root_path, class: "stick-to-it" do %>
+      <%= image_tag("stick_to_it.png", class: "logo-nav") %>
+      <% end %>
+    </div>
 
+    <% if user_signed_in? %>
+    <div class= "button-navbar"><%= link_to "My Challenges", user_achievements_path(current_user) %>
+    </div>
+    <div class="button-navbar hidden-xs"> <%= link_to "Stick To It Blog", blogs_path %>
+    </div>
+    <div class= "button-navbar">
+      <%= link_to edit_user_registration_path(current_user) do %>
+      <i class="fa fa-user-circle-o"></i>  <%= t(".profile", default: "Account") %>
+      <% end %>
+    </div>
+
+    <div>
+      <div class="user-avatar hidden-xs">
+
+        <% if current_user.profile == nil %>
+
+        <%= link_to(new_profile_path) do %>
+        <% if current_user.facebook_picture_url == nil %>
+        <%= image_tag "placeholder.png", class: "avatar-nav"%>
+        <% else %>
+        <%= image_tag current_user.facebook_picture_url, class: "avatar-nav" %>
+        <% end %>
+        <% end %>
+        <span class= "font"> <%= current_user.first_name %> </span>
+      </div>
+    </div>
+
+    <% else %>
+    <div class="hidden-xs">
+      <%= link_to(profile_path(current_user.profile)) do %>
       <% if current_user.profile == nil && current_user.facebook_picture_url != nil %>
       <%= image_tag current_user.facebook_picture_url, class: "avatar-nav" %>
       <% elsif current_user.profile == nil %>
@@ -24,44 +50,19 @@
       <% elsif current_user.profile.photo == nil %>
       <%= image_tag "placeholder.png", class: "avatar-nav"%>
       <% end %>
+      <span class= "font"> <%= current_user.first_name %> </span>
     </div>
-
-    <span class= "font"> <%= current_user.first_name %>    <%= current_user.last_name   %> </span></li>
-    <li class= "button-navbar"><%= link_to "My Challenges", user_achievements_path(current_user) %>
-    </li>
-
-
-    <li class= "button-navbar">
-      <% if current_user.profile == nil %>
-      <%= link_to "Make a profile", new_profile_path  %>
-      <% else %>
-      <%= link_to "My Profile", profile_path(current_user.profile) %>
-      <li class= "button-navbar"> <%= link_to "Blog", blogs_path %> </li>
-      <% end %>
-    </li>
-    <li class= "button-navbar">
-      <%= link_to edit_user_registration_path(current_user) do %>
-       <i class="fa fa-user-circle-o"></i>  <%= t(".profile", default: "Account settings") %>
-       <% end %>
-    </li>
-    <li class= "button-navbar"><%= link_to destroy_user_session_path, method: :delete do %>
-      <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-      <% end %></li>
-    </ul>
   </div>
-  <% else %>
-  <div class="top-nav">
-    <div class="logo-container">
-     <%= link_to root_path, class: "stick-to-it" do %>
-     <%= image_tag("stick_to_it.png", class: "logo-nav") %>
-     <% end %>
-   </div>
-   <ul>
-     <li class= "button-navbar"><%= link_to "Home", root_path %> </li>
-     <li class= "button-navbar"><%= link_to "Blog", blogs_path %></li>
-     <li class= "button-navbar"> <%= link_to t(".sign_in", default: "Login"), new_user_session_path %> </li>
-   </ul>
- </div>
- <% end %>
-</nav>
+  <% end %>
 
+
+  <% end %>
+  <% else %>
+  <div class="button-navbar hidden-xs"><%= link_to "Home", root_path %> </div>
+  <div class="button-navbar hidden-xs"><%= link_to "Blog", blogs_path %></div>
+  <div class="button-navbar"> <%= link_to t(".sign_in", default: "Login"), new_user_session_path %></div>
+  <div></div>
+  <% end %>
+</div>
+</nav>
+<div class="bottom-nav"></div>
