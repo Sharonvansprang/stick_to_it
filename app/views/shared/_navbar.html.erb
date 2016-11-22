@@ -1,16 +1,50 @@
-<script id="tumblr-js" async src="https://assets.tumblr.com/share-button.js"></script>
 <nav>
   <% if user_signed_in? %>
   <div class="bottom-nav">
-    <div class="logo-container">
-     <%= link_to root_path, class: "stick-to-it" do %>
-     <%= image_tag("stick_to_it.png", class: "logo-nav") %>
-     <% end %>
-   </div>
+  </div>
+  <ul class="hide-nav-desktop">
 
-   <ul>
-    <li><div class="user-avatar">
+    <li>
+      <!-- <div class="logo-container"> -->
+      <%= link_to root_path, class: "stick-to-it" do %>
+      <%= image_tag("stick_to_it.png", class: "logo-nav") %>
+      <% end %>
+      <!-- </div> -->
+    </li>
+    <li class= "button-navbar"><%= link_to "My Challenges", user_achievements_path(current_user) %>
+    </li>
+    <!-- <li class= "button-navbar"> -->
+      <%# if current_user.profile == nil %>
+      <%#= link_to "Make a profile", new_profile_path  %>
+      <%# else %>
+      <%#= link_to "My Profile", profile_path(current_user.profile) %>
+      <%# end %>
+    <!-- </li> -->
+    <li class= "button-navbar"> <%= link_to "Stick To It Blog", blogs_path %>
+    </li>
+  <li class= "button-navbar">
+    <%= link_to edit_user_registration_path(current_user) do %>
+    <i class="fa fa-user-circle-o"></i>  <%= t(".profile", default: "Account") %>
+    <% end %>
+  </li>
 
+  <li>
+    <div class="user-avatar">
+
+      <% if current_user.profile == nil %>
+
+      <%= link_to(new_profile_path) do %>
+      <% if current_user.facebook_picture_url == nil %>
+      <%= image_tag "placeholder.png", class: "avatar-nav"%>
+      <% else %>
+      <%= image_tag current_user.facebook_picture_url, class: "avatar-nav" %>
+      <% end %>
+      <span class= "font"> <%= current_user.first_name %> </span></li>
+      <% end %>
+
+      <% else %>
+
+      <%= link_to(profile_path(current_user.profile)) do %>
       <% if current_user.profile == nil && current_user.facebook_picture_url != nil %>
       <%= image_tag current_user.facebook_picture_url, class: "avatar-nav" %>
       <% elsif current_user.profile == nil %>
@@ -24,44 +58,73 @@
       <% elsif current_user.profile.photo == nil %>
       <%= image_tag "placeholder.png", class: "avatar-nav"%>
       <% end %>
+      <span class= "font"> <%= current_user.first_name %> </span>
+    </li>
+    <% end %>
+
+
+    <% end %>
+  </div>
+</ul>
+</div>
+
+<% else %>
+<div class="top-nav">
+  <div class="logo-container">
+   <%= link_to root_path, class: "stick-to-it" do %>
+   <%= image_tag("stick_to_it.png", class: "top-logo-nav") %>
+   <% end %>
+ </div>
+ <ul>
+   <li class= "button-navbar"><%= link_to "Home", root_path %> </li>
+   <li class= "button-navbar"><%= link_to "Blog", blogs_path %></li>
+   <li class= "button-navbar"> <%= link_to t(".sign_in", default: "Login"), new_user_session_path %></li>
+ </ul>
+</div>
+<% end %>
+</nav>
+
+<% if user_signed_in? %>
+
+
+<div class="hide-nav-mobile">
+  <%= link_to root_path, class: "stick-to-it" do %>
+  <%= image_tag("stick_to_it.png", class: "logo-mobile-nav") %>
+  <% end %>
+
+  <div class="navbar-wagon-item">
+    <div class="dropdown">
+      <% if current_user.profile == nil && current_user.facebook_picture_url != nil %>
+      <%= image_tag current_user.facebook_picture_url, class: "mobile-avatar dropdown-toggle ", id:"navbar-wagon-menu", "data-toggle" => "dropdown"  %>
+      <% elsif current_user.profile == nil %>
+      <%= image_tag "placeholder.png", class: "mobile-avatar dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
+      <% elsif current_user.profile.photo != nil %>
+      <%= cl_image_tag current_user.profile.photo.path, gravity: :face, class: "mobile-avatar dropdown-toggle ", id:"navbar-wagon-menu", "data-toggle" => "dropdown"  %>
+      <% elsif current_user.facebook_picture_url !=nil %>
+      <%= image_tag current_user.facebook_picture_url, class: "mobile-avatar dropdown-toggle", id:"navbar-wagon-menu", "data-toggle" => "dropdown"  %>
+
+      <% elsif current_user.facebook_picture_url == nil %>
+      <%= image_tag "placeholder.png", class: "mobile-avatar dropdown-toggle ", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
+      <% elsif current_user.profile.photo == nil %>
+      <%= image_tag "placeholder.png", class: "mobile-avatar dropdown-toggle ", id:"navbar-wagon-menu", "data-toggle" => "dropdown" %>
+      <% end %>
+
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><% if current_user.profile == nil %>
+          <%= link_to "Make a profile", new_profile_path  %>
+          <% else %>
+          <%= link_to "My Profile", profile_path(current_user.profile) %>
+          <li class= "button-navbar"> <%= link_to "Blog", blogs_path %> </li>
+          <% end %></li>
+          <li><%= link_to edit_user_registration_path(current_user) do %>
+            <i class="fa fa-user-circle-o"></i>  <%= t(".profile", default: "Account settings") %>
+            <% end %></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <span class= "font"> <%= current_user.first_name %>    <%= current_user.last_name   %> </span></li>
-    <li class= "button-navbar"><%= link_to "My Challenges", user_achievements_path(current_user) %>
-    </li>
+    <% else %>
 
-
-    <li class= "button-navbar">
-      <% if current_user.profile == nil %>
-      <%= link_to "Make a profile", new_profile_path  %>
-      <% else %>
-      <%= link_to "My Profile", profile_path(current_user.profile) %>
-      <li class= "button-navbar"> <%= link_to "Blog", blogs_path %> </li>
-      <% end %>
-    </li>
-    <li class= "button-navbar">
-      <%= link_to edit_user_registration_path(current_user) do %>
-       <i class="fa fa-user-circle-o"></i>  <%= t(".profile", default: "Account settings") %>
-       <% end %>
-    </li>
-    <li class= "button-navbar"><%= link_to destroy_user_session_path, method: :delete do %>
-      <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-      <% end %></li>
-    </ul>
-  </div>
-  <% else %>
-  <div class="top-nav">
-    <div class="logo-container">
-     <%= link_to root_path, class: "stick-to-it" do %>
-     <%= image_tag("stick_to_it.png", class: "logo-nav") %>
-     <% end %>
-   </div>
-   <ul>
-     <li class= "button-navbar"><%= link_to "Home", root_path %> </li>
-     <li class= "button-navbar"><%= link_to "Blog", blogs_path %></li>
-     <li class= "button-navbar"> <%= link_to t(".sign_in", default: "Login"), new_user_session_path %> </li>
-   </ul>
- </div>
- <% end %>
-</nav>
+    <% end %>
 
