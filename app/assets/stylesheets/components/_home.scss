@@ -222,7 +222,7 @@ color: white;
 }
 
 .text {
-padding-top: 56px;
+  padding-top: 56px;
 }
 
 .logoiconflex {
@@ -295,6 +295,73 @@ padding-top: 56px;
 
 .button-logout :hover {
  transition-timing-function: ease-in-out;
-  transition: 1s;
-  background-color: #88C48D;
+ transition: 1s;
+ background-color: #88C48D;
 }
+
+// profile new
+.profile h2 {
+  // margin-top: 40px;
+  // background-color: #fcfcfc;
+  padding: 50px;
+  text-shadow: 0px 3px rgba(0, 0, 0, 0.2);
+  font-size: 50px;
+  color: #88CED9;
+}
+
+.profile h3 {
+  line-height: 40%;
+  color:#333333;
+}
+
+.scratch-imagery {
+  height: 265px;
+}
+
+.scratch-wrapperfluid {
+  margin-left: 20px;
+}
+
+.scratch-wrappercontent {
+  text-align: center;
+  margin-top: -237px;
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.scratch-bg {
+  background-image: image-url("scratch.png");
+  background-repeat: no-repeat;
+  background-size: 67%;
+  background-position: center;
+  padding-bottom:150px;
+
+
+  height: 500px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  width: 500px;
+  margin: auto;
+}
+
+.banner-background1 {
+  color: #2f2f2f;
+  text-align: center;
+  height: auto;
+  padding-top: 180px;
+  padding-bottom: 50px;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-color: #88C48D;
+  background-size: cover !important;
+  background-image: image-url("cloud.png");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
