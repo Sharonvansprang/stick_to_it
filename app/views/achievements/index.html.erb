@@ -1,45 +1,68 @@
 <% if current_user && @user == current_user%>
+<div style="height: 80px; background-color: #88CED9;"></div>
+<div class="banner-cloud-top">
+  <div class="text-center">
+  <br>
+  <h2>Welcome <%= current_user.first_name %>, these are your challenges! </h2>
+  <br>
+  <br>
+<div class="wrapper-index">
+
+  <% current_user.achievements.reverse_each do |achievement| %>
+    <div class="wrapper-achievement-index">
+      <article class="main">
+        <div class="change-direction">
+            <h5>
+              <%=  achievement.challenge.name%>
+            </h5>
+        </div>
+      </article>
+
+      <aside class="aside aside-2">
+        <div class="change-direction">
+        <h5>
+          <% if achievement.buddy_achievement.nil? && !achievement.buddy_achievement_id.nil? %>
+
+<div class="button-achievements-buddy">
+
+  <%= link_to "Go to challenge", user_achievement_path(current_user, achievement) %>
+</div>
 
 
-<h2>Welcome to all your challenges </h2>
+           <!--  <em>Sorry, your buddy has given up...</em> -->
+          <% elsif achievement.buddy_achievement.nil? %>
+              <div class="button-achievements">
+
+            <%= link_to "Find a buddy!", edit_user_achievement_path(current_user, achievement)  %>
+            </div>
+          <% else %>
 
 
-<ul>
+ <div class="button-achievements-buddy">
 
-<% current_user.achievements.each do |achievement| %>
-<li>
+            <%= link_to "Go to challenge", user_achievement_path(current_user, achievement) %>
 
-<% if achievement.buddy_achievement.nil? %>
-<%= achievement.challenge.name %>
-<%= link_to "Find a buddy!", edit_user_achievement_path(current_user, achievement)  %>
 
-<% elsif achievement.buddy_achievement.user.profile.nil?%>
-<%= link_to achievement.challenge.name, user_achievement_path(current_user, achievement) %>
-  Your buddy is:
-  <%= "#{achievement.buddy_achievement.user.first_name}#{achievement.buddy_achievement.user.last_name}"%>
+            <%#= link_to "Buddy profile: #{achievement.buddy_achievement.user.first_name}", profile_path(achievement.buddy_achievement.user.profile)  %>
 
-<% else %>
-<%= link_to achievement.challenge.name, user_achievement_path(current_user, achievement) %>
-  Your buddy is:
-  <%= link_to "#{achievement.buddy_achievement.user.first_name}#{achievement.buddy_achievement.user.last_name}", profile_path(achievement.buddy_achievement.user.profile)  %>
-
-<% end %>
+            </div>
 
 
 
-</li>
-<br/>
-<% end  %>
-</ul>
 
 
+          <% end %>
+          </h5>
+        </div>
+      </aside>
+    </div>
+  <% end  %>
+  <br/>
+</div>
+  </div>
+</div>
 <% elsif current_user %>
-
-Whoops, did you get lost?
-
+  Whoops, did you get lost?
 <% else %>
-
-You cannot access this page!
-
-
+  You cannot access this page!
 <% end %>

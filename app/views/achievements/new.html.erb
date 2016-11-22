@@ -20,7 +20,7 @@
 
 <%= simple_form_for [@challenge, @achievement] do |f| %>
 <%= f.error_notification %>
-<%= f.input :startdate, label: "On which day do you want to start this challenge?", selected: Date.today%>
+<%= f.input :startdate, label: "On which day do you want to start this challenge?", selected: Date.today,  order: [:day, :month, :year]%>
 <%= f.submit "start this challenge", class: "btn btn-primary" %>
 <% end %>
 
