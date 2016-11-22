@@ -1,16 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 
-nav { width: 100%; }
-nav .top-nav {
-  width: 100%;
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 10;
 }
-
-// nav .logo-container {
-//   width: 150px;
-//   height: 150px;
-//   margin: 0 auto;
-// }
 
 nav .top-nav {
   background-color: #fff;
@@ -34,16 +32,12 @@ nav .top-logo-nav {
  left: 150px;
 }
 nav .logo-nav {
-  height: 130px;
-  width: 130px;
-  position: relative;
-  top: -36px;
+  height: 110px;
+  width: 110px;
 }
 
-nav ul {
-  margin: 0;
+nav .navbar-container {
   display: flex;
-  flex-direction: line;
   justify-content: space-between;
   height: 100px;
   line-height: 100px;
@@ -53,22 +47,13 @@ nav ul li {
   list-style: none;
 }
 
-nav .bottom-nav ul li:first-child {
-  display: flex;
-  height: 500px;
-}
 
-nav .bottom-nav {
+.bottom-nav {
   background-color: #fff;
   width: 100%;
   height: 60px;
 }
 
-nav .bottom-nav ul {
-  margin-left:  10%;
-  margin-right:  10%;
-  padding-top: 55px;
-}
 
 nav .avatar-nav {
   width: 60px;
@@ -101,18 +86,6 @@ nav .avatar-nav {
 span .font:hover {
   transition: color 0.3s ease;
   color: #EE7D9A;
-}
-
-@media (max-device-width: 992px){
-  .hide-nav-desktop {
-    display: none;
-  }
-}
-
-@media (min-device-width: 992px){
-  .hide-nav-mobile {
-    display: none;
-  }
 }
 
 nav span {
