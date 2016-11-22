@@ -2,7 +2,7 @@
 
 <h2><%= @achievement.challenge.name %>
   <br/>
-  <%=@achievement.startdate%></h2>
+  <%=@achievement.startdate.to_formatted_s(:long_ordinal)%></h2>
 
 
   <% if @achievements.empty? %>

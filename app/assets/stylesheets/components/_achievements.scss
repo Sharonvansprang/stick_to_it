@@ -1,0 +1,269 @@
+.some-container {
+  height:430px;
+  overflow:auto;
+  border: 2px solid;
+  background-color: white;}
+  // border-radius: 20%
+
+
+.new-message {
+  height:450px;}
+  // border-radius: 20%
+
+
+.links {
+  text-align: left;
+  width: 300px;
+  padding: 5px;
+}
+
+
+.rechts {
+  text-align: right;
+  margin-right: 50px;
+  padding: 5px;
+  width: -500px;
+}
+
+
+.avatar-achievements {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+
+
+.buddy {
+  vertical-align: center;
+  padding-top: 15px;
+}
+
+
+// .wrapper-achievements {
+//   margin-bottom: 50px;
+// }
+
+
+.banner-cloud-top {
+  padding: 40px;
+  color: #2f2f2f;
+  height: auto;
+  padding-top: 150px;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  background-image: image-url("cloud.png");
+  background-color: #88CED9;
+}
+
+.banner-cloud {
+  padding: 40px;
+  color: #2f2f2f;
+  height: auto;
+  padding-top: 150px;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  background-image: image-url("cloud.png");
+
+}
+
+.new-message h3, h4 {
+  color: white;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+
+.banner-cloud-blue {
+  color: #2f2f2f;
+  height: auto;
+  padding-top: 150px;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  background-image: image-url("cloudblue.png");
+  padding-bottom: 50px;
+}
+
+.button-log-chat {
+  margin-left: 10px;
+  padding: 12px 20px;
+  border-radius: 20em;
+  line-height: 40px;
+  background-color: #EE7D9A;
+  color: white;
+  font-size: 14px;
+  border: 2px solid #EE7D9A;
+}
+.button-log-chat:hover {
+  color: white;
+  background: #c85b5b;
+  border-color: #c85b5b;
+   transition-timing-function: ease-in-out;
+  transition: 1s;
+}
+
+
+
+
+.product {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+}
+
+/* Body design */
+.product-body {
+  flex: 1 1 auto;
+}
+.product-body h3 {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+}
+.product-body p {
+  font-weight: lighter;
+  color: #999999;
+  margin-bottom: 0;
+}
+
+
+/* Upvote design */
+
+/* Controls design */
+.product-controls {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0px;
+}
+.product-controls a {
+  padding: 0 20px;
+  font-size: 17px;
+  color: #E6E6E6;
+}
+.product-controls a:hover {
+  color: #D3473C !important
+}
+.product-controls-hidden a {
+  color: transparent;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  border-color: transparent;
+}
+
+/* Hover effects */
+.product:hover {
+  background: #f7f7fa;
+  cursor: pointer;
+}
+
+// .product:hover .product-upvote { transform: scale(1.2) }
+.product:hover .product-controls-hidden a { color: #E6E6E6 }
+.product-upvote:hover .product-arrow { border-bottom: 9px solid #5898f1 }
+
+
+
+
+.wrapper-achievement-index {
+  padding: 5px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+
+  font-weight: bold;
+  text-align: center;
+    transition: all 0.15s ease;
+  // background-color: deepskyblue;
+
+}
+
+
+.wrapper-index {
+  width: 700px;
+  margin: auto;
+}
+
+.wrapper-achievement-index:hover {
+  background: #f7f7fa;
+}
+
+
+// .wrapper > * {
+//   padding: 10px;
+//   flex: 1 100%;
+//   background-color: deepskyblue;
+// }
+
+
+.main {
+
+}
+
+.aside-1 {
+}
+
+.aside-2 {
+}
+
+
+.change-direction {
+  text-align: left;
+}
+
+@media all and (min-width: 600px) {
+  .aside { flex: 1 0; }
+}
+
+@media all and (min-width: 800px) {
+  .main    { flex: 3 0px; }
+  .aside-1 { order: 1; }
+  .main    { order: 2; }
+  .aside-2 { order: 3; }
+  .footer  { order: 4; }
+}
+
+
+
+.button-achievements a {
+  border: 2px solid #EE7D9A;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: white;
+  background-color: #EE7D9A;
+  font-family: "Quicksand";
+
+}
+
+.button-achievements a:hover {
+ transition-timing-function: ease-in-out;
+  transition: 1s;
+  background-color: #c85b5b;
+}
+
+
+.button-achievements-buddy a {
+  border: 2px solid #EE7D9A;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: black;
+  background-color: white;
+  font-family: "Quicksand";
+
+}
+
+.button-achievements-buddy a:hover {
+ transition-timing-function: ease-in-out;
+  transition: 1s;
+  background-color: #c85b5b;
+}
+
+
+
+

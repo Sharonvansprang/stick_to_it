@@ -1,9 +1,10 @@
+<<<<<<< HEAD
 <div class="padded1">
 </div>
 
 <div class="banner-background1">
 
-  <% if current_user && current_user.profile.nil? %>
+  <% if current_user && (current_user.profile.nil? || current_user.profile.invalid? )   %>
 
   <div class="questions text-center profile">
     <h1>Welcome <%=current_user.first_name %>   <%=current_user.last_name %>!</h1>
@@ -32,6 +33,8 @@
      <h5><%= f.input :photo_cache, as: :hidden %></h5>
      <%= f.submit "write something funny" %>
      <% end %>
+
+
    </div>
 </div>
 </div>
@@ -46,10 +49,14 @@
 
 
 <% elsif current_user %>
+<div class="background-new questions text-center profile">
+
+
 
 You already have a profile, <%= current_user.first_name %> <%= current_user.last_name %>.
 <%= link_to "Go to your profile", profile_path(current_user.profile)  %>
 
+ </div>
 
 <% else %>
 
@@ -57,7 +64,7 @@ You cannot access this page
 
 <% end %>
 
-</div>
+
 
 
 
