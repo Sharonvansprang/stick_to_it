@@ -6,6 +6,15 @@ before_action :find_profile, only: [:show, :edit, :update]
 
 def new
   @profile = Profile.new
+  questions = ["What is the best place in the world you would like to live in?","What is the one career you would love to enter?",
+"Which movie influenced your life most?, Favorite movie of all time? Why so?",
+"What’s your biggest goal in life right now?", "What is your favorite way to spend
+a Saturday?", "Do you have any pet peeves?", "What was your family like growing up?",
+"What were you like as a kid?", "What should I know about you that I’d never think to ask about?",
+"Did you—or do you—have a nickname? What’s the story behind it?",
+"Who was your favorite schoolteacher or college professor? Why?",
+"Have you figured out your calling in life? What is it?  "]
+@sample = questions.sample(3)
 end
 
 def create

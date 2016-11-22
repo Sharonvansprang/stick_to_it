@@ -1,41 +1,52 @@
-
-<% if current_user && (current_user.profile.nil? || current_user.profile.invalid? ) %>
-<div class="background-new questions text-center profile">
-
-  <h2>Welcome <%=current_user.first_name %>   <%=current_user.last_name %>!</h2>
-
-  <h3>To be able to use <em>"Stick To It!"</em>, you need a profile. </h3>
-  <br/>
-  <h4>Please fill in the following details to make your profile complete. Some questions you could answer in your bio:</h4>
-<h4>
-  <ul>
-    <li>What is the best place in the world you would like to live in?</li>
-    <li>What is the one career you would love to enter?</li>
-    <li>Which movie influenced your life most?</li>
-  </ul>
-</h4>
-
-
-<section class="profile-form">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-4 col-md-offset-4">
-        <div class="form-container">
-         <!-- <div class= "logincontainer" > -->
-         <%= simple_form_for [@profile] do |f| %>
-          <%= f.error_notification %>
-         <h5><%= f.input :bio %></h5>
-         <h5><%= f.input :photo, as: :attachinary %></h5>
-         <h5><%= f.input :photo_cache, as: :hidden %></h5>
-         <%= f.submit "write something funny", class:"navbar-wagon-item navbar-wagon-link button-log" %>
-         <% end %>
-       </div>
-     </div>
-   </div>
- </div>
-</section>
-
+<<<<<<< HEAD
+<div class="padded1">
 </div>
+
+<div class="banner-background1">
+
+  <% if current_user && (current_user.profile.nil? || current_user.profile.invalid? )   %>
+
+  <div class="questions text-center profile">
+    <h1>Welcome <%=current_user.first_name %>   <%=current_user.last_name %>!</h1>
+    <h3>Please make your profile complete. </h3>
+</div>
+</div>
+
+<div class="text-center">
+    <h3>Some questions you could answer in your bio:</h3>
+  <ul>
+    <% @sample.each do |question| %>
+
+  <li> <h4> <%= question %></h4>  </li>
+
+    <% end %>
+</ul>
+</div>
+<div class="scratch-bg">
+
+<div>
+    <div class="form-container">
+
+     <%= simple_form_for [@profile] do |f| %>
+     <h5><%= f.input :bio %></h5>
+     <h5><%= f.input :photo, as: :attachinary %></h5>
+     <h5><%= f.input :photo_cache, as: :hidden %></h5>
+     <%= f.submit "write something funny" %>
+     <% end %>
+
+
+   </div>
+</div>
+</div>
+    <!-- <section class="profile-form"> -->
+    <!-- <div class="container"> -->
+    <!-- <div class="row"> -->
+    <!-- <div class="col-sm-12 col-md-4 col-md-offset-4"> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </section> -->
+
 
 <% elsif current_user %>
 <div class="background-new questions text-center profile">
@@ -43,7 +54,7 @@
 
 
 You already have a profile, <%= current_user.first_name %> <%= current_user.last_name %>.
- <%= link_to "Go to your profile", profile_path(current_user.profile)  %>
+<%= link_to "Go to your profile", profile_path(current_user.profile)  %>
 
  </div>
 
