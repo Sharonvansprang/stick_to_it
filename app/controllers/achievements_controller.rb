@@ -14,7 +14,6 @@ class AchievementsController < ApplicationController
   def show
 
     @how_many_days = Date.today - @achievement.startdate
-
     @progress = Progress.new
     @progress_today = Progress.find_by(achievement: @achievement, day: Date.today)
     @buddy_achievement = @achievement.buddy_achievement
@@ -28,20 +27,22 @@ class AchievementsController < ApplicationController
 
   end
 
-  def new
-    @achievements = Achievement.where(challenge: @challenge)
-    @achievement = Achievement.new
-  end
+  # def new
+  #   @achievements = Achievement.where(challenge: @challenge)
+  #   @achievement = Achievement.new
+  # end
 
   def create
     @achievements = Achievement.where(challenge: @challenge)
     @achievement = Achievement.new(achievement_params)
     @achievement.user = current_user
     @achievement.challenge = @challenge
+    @other_achievements = Achievement.where(challenge: @challenge)
+
     if @achievement.save
       redirect_to user_achievements_path(current_user)
     else
-      render :new
+      render 'challenges/show'
     end
   end
 
