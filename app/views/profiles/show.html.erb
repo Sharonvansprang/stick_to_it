@@ -22,7 +22,7 @@
 <strong><%= achievement.challenge.name %></strong></p1>
 
 <p1> <%= @user.first_name %> started this challenge on: <strong>
-<%= achievement.startdate %></strong> </p1>
+<%= achievement.startdate.to_formatted_s(:long_ordinal) %></strong> </p1>
 <% end %>
 
 

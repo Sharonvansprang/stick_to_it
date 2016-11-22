@@ -1,18 +1,19 @@
-<div class="background-new questions text-center profile"">
 
-<% if current_user && current_user.profile.nil? %>
-
-
+<% if current_user && (current_user.profile.nil? || current_user.profile.invalid? ) %>
+<div class="background-new questions text-center profile">
 
   <h2>Welcome <%=current_user.first_name %>   <%=current_user.last_name %>!</h2>
-  <h3>Please fill in the following details to make your profile complete. </h3> <h3>Some questions you could answer in your bio:</h3>
 
+  <h3>To be able to use <em>"Stick To It!"</em>, you need a profile. </h3>
+  <br/>
+  <h4>Please fill in the following details to make your profile complete. Some questions you could answer in your bio:</h4>
+<h4>
   <ul>
     <li>What is the best place in the world you would like to live in?</li>
     <li>What is the one career you would love to enter?</li>
     <li>Which movie influenced your life most?</li>
   </ul>
-</h3>
+</h4>
 
 
 <section class="profile-form">
@@ -22,10 +23,11 @@
         <div class="form-container">
          <!-- <div class= "logincontainer" > -->
          <%= simple_form_for [@profile] do |f| %>
+          <%= f.error_notification %>
          <h5><%= f.input :bio %></h5>
          <h5><%= f.input :photo, as: :attachinary %></h5>
          <h5><%= f.input :photo_cache, as: :hidden %></h5>
-         <%= f.submit "write something funny" %>
+         <%= f.submit "write something funny", class:"navbar-wagon-item navbar-wagon-link button-log" %>
          <% end %>
        </div>
      </div>
@@ -33,12 +35,17 @@
  </div>
 </section>
 
+</div>
 
 <% elsif current_user %>
+<div class="background-new questions text-center profile">
+
+
 
 You already have a profile, <%= current_user.first_name %> <%= current_user.last_name %>.
  <%= link_to "Go to your profile", profile_path(current_user.profile)  %>
 
+ </div>
 
 <% else %>
 
@@ -46,7 +53,7 @@ You cannot access this page
 
 <% end %>
 
-</div>
+
 
 
 
