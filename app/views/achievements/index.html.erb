@@ -1,11 +1,8 @@
 <% if current_user && @user == current_user%>
 <div style="height: 80px; background-color: #88CED9;"></div>
-<div class="banner-cloud-top">
   <div class="text-center">
-  <br>
+<div class="banner-cloud-top">
   <h2>Welcome <%= current_user.first_name %>, these are your challenges! </h2>
-  <br>
-  <br>
 <div class="wrapper-index">
 
   <% current_user.achievements.reverse_each do |achievement| %>
@@ -23,10 +20,10 @@
         <h5>
           <% if achievement.buddy_achievement.nil? && !achievement.buddy_achievement_id.nil? %>
 
-<div class="button-achievements-buddy">
+          <div class="button-achievements-buddy">
 
-  <%= link_to "Go to challenge", user_achievement_path(current_user, achievement) %>
-</div>
+            <%= link_to "Go to challenge", user_achievement_path(current_user, achievement) %>
+          </div>
 
 
            <!--  <em>Sorry, your buddy has given up...</em> -->
@@ -38,18 +35,11 @@
           <% else %>
 
 
- <div class="button-achievements-buddy">
+      <div class="button-achievements-buddy">
 
             <%= link_to "Go to challenge", user_achievement_path(current_user, achievement) %>
 
-
-            <%#= link_to "Buddy profile: #{achievement.buddy_achievement.user.first_name}", profile_path(achievement.buddy_achievement.user.profile)  %>
-
             </div>
-
-
-
-
 
           <% end %>
           </h5>
@@ -59,7 +49,17 @@
   <% end  %>
   <br/>
 </div>
+
+
+<div class="button-log-index">
+<h5>
+      <%= link_to "Find another challenge", life_goals_path %></h5>
+</div>
+
+
   </div>
+
+
 </div>
 <% elsif current_user %>
   Whoops, did you get lost?

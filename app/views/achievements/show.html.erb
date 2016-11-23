@@ -2,13 +2,16 @@
 
   <% if current_user && @user == current_user %>
 
+<div style="height: 200px; background-color: #88CED9;">
+<br>
+<br>
+<br>
+  <h1> <%= @achievement.challenge.name %></h1>
 
+  <h3><em> This challenge started on: <%= @achievement.startdate.to_formatted_s(:long_ordinal)%> </em>  </h3></div>
 <div class="banner-cloud-top">
 
 
-  <h1> <%= @achievement.challenge.name %></h1>
-
-  <h3><em> This challenge started on: <%= @achievement.startdate.to_formatted_s(:long_ordinal)%> </em>  </h3>
   <br/>
 This challenge has been going:
 
@@ -53,6 +56,8 @@ This challenge has been going:
   <% elsif @achievement.buddy_achievement == nil %>
     <h3> You do not have buddy yet! </h3>
   <% else %>
+
+
     <h4>
       <% if @buddy_achievement.user.provider == "facebook" %>
         <%= image_tag @buddy_achievement.user.facebook_picture_url, class: "avatar-achievements" %>

@@ -10,6 +10,19 @@
   height:450px;}
   // border-radius: 20%
 
+.new-message h3 {
+  color: white;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.new-message h4 {
+  color: white;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.padding-cloud {
+
+}
 
 .links {
   text-align: left;
@@ -66,10 +79,6 @@
 
 }
 
-.new-message h3, h4 {
-  color: white;
-  text-shadow: 1px 1px 2px #000000;
-}
 
 
 .banner-cloud-blue {
@@ -100,68 +109,24 @@
   transition: 1s;
 }
 
-
-
-
-.product {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  border-radius: 3px;
-  transition: all 0.15s ease;
+.button-log-index a {
+  margin-left: 10px;
+  padding: 12px 20px;
+  border-radius: 20em;
+  line-height: 40px;
+  background-color: #88CED9;
+  color: white;
+  font-size: 14px;
+  border: 2px solid #88CED9;
 }
 
-/* Body design */
-.product-body {
-  flex: 1 1 auto;
+.button-log-index:hover a {
+  color: white;
+  background: #EE7D9A;
+  border-color: #EE7D9A;
+   transition-timing-function: ease-in-out;
+  transition: 1s;
 }
-.product-body h3 {
-  font-weight: bold;
-  font-size: 23px;
-  margin-top: 0;
-}
-.product-body p {
-  font-weight: lighter;
-  color: #999999;
-  margin-bottom: 0;
-}
-
-
-/* Upvote design */
-
-/* Controls design */
-.product-controls {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  margin: 0px;
-}
-.product-controls a {
-  padding: 0 20px;
-  font-size: 17px;
-  color: #E6E6E6;
-}
-.product-controls a:hover {
-  color: #D3473C !important
-}
-.product-controls-hidden a {
-  color: transparent;
-  font-size: 15px;
-  transition: all 0.15s ease;
-  border-color: transparent;
-}
-
-/* Hover effects */
-.product:hover {
-  background: #f7f7fa;
-  cursor: pointer;
-}
-
-// .product:hover .product-upvote { transform: scale(1.2) }
-.product:hover .product-controls-hidden a { color: #E6E6E6 }
-.product-upvote:hover .product-arrow { border-bottom: 9px solid #5898f1 }
-
-
 
 
 .wrapper-achievement-index {
@@ -198,17 +163,6 @@
 //   flex: 1 100%;
 //   background-color: deepskyblue;
 // }
-
-
-.main {
-
-}
-
-.aside-1 {
-}
-
-.aside-2 {
-}
 
 
 .change-direction {
