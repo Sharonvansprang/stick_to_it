@@ -1,5 +1,6 @@
 
-<div class="account-background edit-field text-center">
+<div class="color-padding-2"></div>
+<div class="banner-image-2"></div>
 <div class="contentaccount">
   <h1> Edit your account settings<%#= resource_name.to_s.humanize %></h1>
     <% if current_user.provider == "facebook"%>
@@ -31,8 +32,6 @@
     </div>
     </div>
     <% end %>
-  </div>
-</div>
 
 <div class= "footeraccount">
     <div class= "button-navbar"><%= link_to destroy_user_session_path, method: :delete do %>
