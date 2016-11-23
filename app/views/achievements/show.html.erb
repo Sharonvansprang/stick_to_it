@@ -2,15 +2,23 @@
 
   <% if current_user && @user == current_user %>
 
-<div style="height: 200px; background-color: #88CED9;">
-<br>
-<br>
+<div class="padding-cloud">
+
 <br>
   <h1> <%= @achievement.challenge.name %></h1>
+<br>
+  <h3><em> from <%= @achievement.startdate.to_formatted_s(:long_ordinal)%> </em> to <em><%= @enddate.to_formatted_s(:long_ordinal) %>  </em>  </h3>
 
-  <h3><em> This challenge started on: <%= @achievement.startdate.to_formatted_s(:long_ordinal)%> </em>  </h3></div>
+  </div>
+
+
+
+
 <div class="banner-cloud-top">
 
+
+
+<%= @days_to_go %> days to go!
 
   <br/>
 This challenge has been going:
@@ -23,6 +31,8 @@ This challenge has been going:
 
 <%= @progresses_buddy.count %>
 <br>
+
+
   <% if !@achievement.buddy_achievement_id.nil? && @achievement.buddy_achievement.nil? %>
    <h4> <em>Sorry, your buddy has given up!</em> </h4>
 
@@ -81,7 +91,6 @@ This challenge has been going:
             <h3> You do not have buddy yet! </h3>
 
 
-
             <% else %>
 
 
@@ -123,7 +132,7 @@ This challenge has been going:
         <h5>Your thoughts:
           <%= @progress_today.log %></h5>
         <h5>Your mood:
-            <%= @progress_today.mood %></h5>
+            <%= @progress_today.mood %> <%= @mood %> </h5>
 
             <% if @progress_today.done %>
             <h5>You have completed your task of the day!</h5>
@@ -155,7 +164,7 @@ This challenge has been going:
 
 
               <h5>Their mood:
-                <%= @buddy_progress_today.mood %></h5>
+                <%= @buddy_progress_today.mood %> <%= @buddy_mood %>  </h5>
 
                 <% if @buddy_progress_today.done %>
                 <h5>They have completed their task of the day!</h5>
