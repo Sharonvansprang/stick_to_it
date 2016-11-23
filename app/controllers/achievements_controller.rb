@@ -57,7 +57,7 @@ class AchievementsController < ApplicationController
     @achievement.buddy_achievement = @buddy_achievement
     @buddy_achievement.buddy_achievement = @achievement
 
-    if @achievement.save && @buddy_achievement.save
+    if @achievement.save! && @buddy_achievement.save!
       redirect_to user_achievements_path(current_user)
     else
       render :edit
