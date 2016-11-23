@@ -1,7 +1,7 @@
 class AchievementsController < ApplicationController
 
 
-  before_action :find_challenge, only: [:new, :create]
+  before_action :find_challenge, only: [:create]
   before_action :find_achievement, only: [:show, :edit, :update]
   before_action :find_buddy_achievement, only: [:update]
   before_action :find_user, only: [:index, :show, :edit]
@@ -60,7 +60,7 @@ class AchievementsController < ApplicationController
     if @achievement.save && @buddy_achievement.save
       redirect_to user_achievements_path(current_user)
     else
-      render :new
+      render :edit
     end
   end
 
@@ -123,6 +123,9 @@ class AchievementsController < ApplicationController
 
    @buddy_mood =  "\xF0\x9F\x98\xA2"
 
+  else
+    @buddy_mood = ""
+
 
 end
 
@@ -159,6 +162,9 @@ elsif @progress_today.mood == "sad"
   @mood = "\xF0\x9F\x98\xA2"
 
 elsif @progress_today.nil?
+  @mood = ""
+
+else
   @mood = ""
 
 end

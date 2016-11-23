@@ -1,31 +1,32 @@
-<% if current_user %>
+<%# if current_user %>
 
-<% if !@achievements.empty? %>
+<%# if !@achievements.empty? %>
 
 
-<h2>These are the other users that also want to take on this challenge: </h2>
+<!-- <h2>These are the other users that also want to take on this challenge: </h2>
 
-<% @achievements.each do |achievement| %>
-<%= achievement.startdate.to_formatted_s(:long_ordinal) %>
-<%= achievement.user.first_name %>
-<%= achievement.user.last_name %>
+<%# @achievements.each do |achievement| %>
+<%#= achievement.startdate.to_formatted_s(:long_ordinal) %>
+<%#= achievement.user.first_name %>
+<%#= achievement.user.last_name %>
 
-<% end %>
+<%# end %>
 
-<% else %>
+<%# else %>
 
 <h2>No other users have signed up for this challenge. Be the first!</h2>
 
-<% end %>
+<%# end %>
 
-<%= simple_form_for [@challenge, @achievement] do |f| %>
-<%= f.error_notification %>
-<%= f.input :startdate, label: "On which day do you want to start this challenge?", selected: Date.today,  order: [:day, :month, :year]%>
-<%= f.submit "start this challenge", class: "btn btn-primary" %>
-<% end %>
+<%#= simple_form_for [@challenge, @achievement] do |f| %>
+<%#= f.error_notification %>
+<%#= f.input :startdate, label: "On which day do you want to start this challenge?", selected: Date.today,  order: [:day, :month, :year]%>
+<%#= f.submit "start this challenge", class: "btn btn-primary" %>
+<%# end %>
 
 
-<% else %>
+<%# else %>
 
 You cannot access this page!
-<% end %>
+<%# end %>
+ -->
