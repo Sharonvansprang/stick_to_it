@@ -49,7 +49,8 @@ class AchievementsController < ApplicationController
 
 
   def edit
-    @achievements = Achievement.where(challenge: @achievement.challenge) - Achievement.where(user: current_user)
+    @challenge = @achievement.challenge
+    @other_achievements = @challenge.achievements.no_buddy.starting_on(@achievement.startdate) - [@achievement]
   end
 
   def update

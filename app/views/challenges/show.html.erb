@@ -25,8 +25,7 @@
         <button type="button" class="button-log" data-toggle="modal" data-target="#chatModal">
           Sign up
         </button>
-        <% if @achievement.errors.any? %>
-        <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+        <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -59,8 +58,8 @@
 
 
                 <%= simple_form_for [@challenge, @achievement] do |f| %>
-                <%= f.error_notification %>
-                <%= f.input :startdate, label: "On which day do you want to start this challenge?", selected: Date.today,  order: [:day, :month, :year]%>
+                <%#= f.error_notification %>
+                <%= f.input :startdate, label: "On which day do you want to start this challenge?", selected: Date.today,  order: [:day, :month, :year],  start_year: Date.today.year, end_year: Date.today.year + 2 %>
                 <%= f.submit "start this challenge", class: "button-log" %>
                 <% end %>
 
@@ -69,51 +68,22 @@
             </div>
           </div>
         </div>
-        <% else %>
-                <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h3 class="modal-title" id="myModalLabel"><%= @challenge.name %></h3>
-              </div>
-              <div class="modal-body">
 
-<% if !@other_achievements.empty? %>
+<% if @achievement.errors.any? %>
+  <%= content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      $(document).ready(function(){
+        $('#chatModal').modal('show');
+        $('#achievement_startdate_3i').val("<%= @achievement.startdate.day %>");
+        $('#achievement_startdate_2i').val("<%= @achievement.startdate.month %>")
+        $('#achievement_startdate_1i').val("<%= @achievement.startdate.year %>")
 
 
-<h4>These are the other users that also want to take on this challenge: </h4>
 
-<ul>
-<% @other_achievements.each do |achievement| %>
-<li><%= achievement.user.first_name %>
-<%= achievement.user.last_name %>
-<%= achievement.startdate.to_formatted_s(:long_ordinal) %></li>
-
+      });
+    <% end %>
+  <% end %>
 <% end %>
-</ul>
-<% else %>
-
-<h4>No other users have signed up for this challenge. Be the first!</h4>
-
-<% end %>
-
-
-
-                <%= simple_form_for [@challenge, @achievement] do |f| %>
-                <%= f.error_notification %>
-                <%= f.input :startdate, label: "On which day do you want to start this challenge?", selected: Date.today,  order: [:day, :month, :year]%>
-                <%= f.submit "start this challenge", class: "button-log" %>
-                <% end %>
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <% end %>
 
 
     <%#= link_to "sign up for this challenge", new_challenge_achievement_path(@challenge) %>
