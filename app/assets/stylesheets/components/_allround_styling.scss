@@ -57,8 +57,14 @@ a:hover {
 }
 // ///////////////////////////////////////////
 
+.color-padding {
+  height: 500px;
+  background-color: #88CED9;
+  padding-top: 47px;
+}
+
 .banner-general {
-  background-image: image-url('pink_rice.png');
+  background-image: image-url('cloud.png');
   background-size: cover !important;
   color: #333333; //<- blog-card Titles
   padding-top: 75px;
