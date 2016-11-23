@@ -2,13 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 .card {
-  background-color: #fff;
-  border-radius: 3px;
 
+  border-radius: 3px;
   padding: 40px;
   margin: 10px;
   width: 550px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,8 +23,6 @@
   justify-content: center;
   align-items: center;
 }
-
-
 
 .overallcontainer{
   display: flex;
@@ -61,6 +57,11 @@ a:hover {
   height: 500px;
   background-color: #88CED9;
   padding-top: 47px;
+}
+
+.color-padding-sm {
+  height: 50px;
+  background-color: #88CED9;
 }
 
 .banner-general {
@@ -138,5 +139,12 @@ a:hover {
   font-weight: lighter;
   color: #222;
   margin-bottom: 20px;
+}
+
+.banner-image {
+  background-image: image-url('cloud.png');
+  background-size: cover !important;
+  height: 150px;
+  background-color: #88CED9;
 }
 

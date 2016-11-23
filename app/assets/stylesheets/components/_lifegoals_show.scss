@@ -1,20 +1,31 @@
 //  BANNER CSS FOR LIFEGOALS
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 .banner-life-goals .card {
   height: 260px;
+  justify-content: center;
+  border-radius: 3px;
+  background-color: #88CED9;
+  padding: 40px;
+  margin: 10px;
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner-life-goals {
+  background-color: white;
   color: #333333;
   text-align: center;
   height: 100%;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: image-url('pink_rice.png');
+  font-family: "Quicksand";
 }
 
 .banner-life-goals a {
