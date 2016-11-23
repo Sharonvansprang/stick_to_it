@@ -13,6 +13,33 @@
   align-items: center;
 }
 
+.card-blog h1{
+  font-family: "Quicksand";
+}
+
+.card-blog a {
+  text-decoration:none;
+  color: #333333;
+}
+
+.card-blog a:hover {
+ transition-timing-function: ease-in-out;
+ transition: 1s;
+ color: #88C48D;
+}
+
+.card-blog {
+  border-radius: 3px;
+  padding: 40px;
+  margin: 10px;
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Quicksand";
+}
+
 .form-chat {
   padding: 40px;
   margin: 10px;
@@ -39,18 +66,26 @@ a:hover {
   text-decoration: none;
 }
 
-// @KITTY re position the blog-banner class
-.blog-banner {
-  background-image: image-url('pink_rice.png');
-  background-size: cover !important;
-  color: #333333; //<- blog-card Titles
-  padding-top: 75px;
-  text-align: center;
+.blog-banner h1 {
+  font-family:"Quicksand";
 }
 
-.blog-banner h1 {
-  margin-bottom: 25px;
+.blog-banner h4 {
+  font-family:"Quicksand";
 }
+// @KITTY re position the blog-banner class
+.blog-banner {
+  font-family: "Quicksand";
+  // background-image: image-url('cloud.png');
+  // background-size: 150px;
+  color: #333333; //<- blog-card Titles
+  // padding-top: 75px;
+  // text-align: center;
+}
+
+// .blog-banner h1 {
+//   margin-bottom: 25px;
+// }
 // ///////////////////////////////////////////
 
 .color-padding {
@@ -65,8 +100,8 @@ a:hover {
 }
 
 .banner-general {
-  background-image: image-url('cloud.png');
-  background-size: cover !important;
+  // background-image: image-url('cloud.png');
+  // background-size: cover !important;
   color: #333333; //<- blog-card Titles
   padding-top: 75px;
   text-align: center;
