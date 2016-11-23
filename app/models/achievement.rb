@@ -9,7 +9,14 @@ class Achievement < ApplicationRecord
   validates :challenge, uniqueness: {scope: :user}
   validate :start_date_valid?, :not_own_buddy?
 
+  scope :no_buddy, ->{
+  where(buddy_achievement: nil) }
+  scope :starting_on, ->(start_date) {
+    where(startdate: start_date)
+  }
+
   after_destroy :remove_from_buddy
+
 
   private
 

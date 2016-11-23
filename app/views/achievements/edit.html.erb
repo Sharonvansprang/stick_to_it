@@ -1,30 +1,48 @@
 <% if current_user && @user == current_user %>
 
-<h2><%= @achievement.challenge.name %>
-  <br/>
-  <%=@achievement.startdate.to_formatted_s(:long_ordinal)%></h2>
+<div class="text-center">
+<div style="height: 80px; background-color: #88CED9; padding-top: 80px;"></div>
+<div class="banner-cloud-top">
+<h1><%= @achievement.challenge.name %></h1>
+ <h4> You want to start this challenge on <%=@achievement.startdate.to_formatted_s(:long_ordinal)%></h4>
+<br>
+<br>
 
-
-  <% if @achievements.empty? %>
+  <% if @other_achievements.empty? %>
 
 <h3>There are no other users that want to take on this challenge.</h3>
 
   <% else %>
 
-  <h3>These are the other users that want to take on this challenge:</h3>
+  <h4>These are the other users that want to take on this challenge on the same date:</h4>
+  <br>
 
-        <% @achievements.each do |achievement| %>
-          <% if achievement.buddy_achievement.nil? && achievement.startdate == @achievement.startdate %>
-            <%= achievement.user.first_name %><%= achievement.user.last_name %>
-            <%= link_to "See their profile", profile_path(achievement.user.profile)  %>
-            <%= achievement.startdate %>
+<div class="container">
+<div class="row">
+
+<ul class="list-inline">
+        <% @other_achievements.each do |achievement| %>
+          <h5>
+          <div class="col-xs-6">
+           <li><%= achievement.user.first_name %> <%= achievement.user.last_name %>
+            <% if achievement.user.profile != nil %>
+            <%= link_to "Check out their profile", profile_path(achievement.user.profile), target: :_blank  %>
+            <%end %>
+            <br>
+            <br>
             <%= simple_form_for [current_user, @achievement] do |f| %>
-            <h3><%= f.hidden_field :buddy_achievement_id, value: achievement.id %></h3>
-            <h5> <%= f.submit "Select this buddy" %></h5>
+            <%= f.hidden_field :buddy_achievement_id, value: achievement.id %>
+            <%= f.submit "Select this buddy", class: "button-buddy" %></li></div> </h5>
             <% end %>
           <% end %>
-        <% end %>
+          <br>
+</ul></div></div>
+
       <% end %>
+</div>
+
+</div>
+</div>
 
 <% elsif current_user %>
 

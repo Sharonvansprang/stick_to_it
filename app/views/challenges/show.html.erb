@@ -58,8 +58,8 @@
 
 
                 <%= simple_form_for [@challenge, @achievement] do |f| %>
-                <%= f.error_notification %>
-                <%= f.input :startdate, label: "On which day do you want to start this challenge?", selected: Date.today,  order: [:day, :month, :year]%>
+                <%#= f.error_notification %>
+                <%= f.input :startdate, label: "On which day do you want to start this challenge?", selected: Date.today,  order: [:day, :month, :year],  start_year: Date.today.year, end_year: Date.today.year + 2 %>
                 <%= f.submit "start this challenge", class: "button-log" %>
                 <% end %>
 
@@ -69,6 +69,21 @@
           </div>
         </div>
 
+<% if @achievement.errors.any? %>
+  <%= content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      $(document).ready(function(){
+        $('#chatModal').modal('show');
+        $('#achievement_startdate_3i').val("<%= @achievement.startdate.day %>");
+        $('#achievement_startdate_2i').val("<%= @achievement.startdate.month %>")
+        $('#achievement_startdate_1i').val("<%= @achievement.startdate.year %>")
+
+
+
+      });
+    <% end %>
+  <% end %>
+<% end %>
 
 
     <%#= link_to "sign up for this challenge", new_challenge_achievement_path(@challenge) %>
@@ -86,7 +101,6 @@
   <!-- <div class="fb-like" data-href="<%= challenge_url(@challenge) %>" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div> -->
   <% end %>
 
-
 </div>
 </div>
 
@@ -95,3 +109,4 @@
 You cannot access this page!
 
 <% end %>
+

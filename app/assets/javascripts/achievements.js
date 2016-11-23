@@ -2,4 +2,8 @@
 // All this logic will automatically be available in application.js.
 $(document).ready(function() {
   $('.attachinary-input').attachinary();
+
+  setTimeout(function(){
+    $(".timeline").addClass('show');
+  }, 300);
 });
