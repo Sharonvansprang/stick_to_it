@@ -6,6 +6,11 @@
   <div id="fb-root"></div>
   <h1>
     <%= @user.first_name%>  <%= @user.last_name %>'s profile!
+     <div class= "avatar-profile">
+    <% unless @profile.photo == nil %>
+    <%= cl_image_tag @profile.photo.path, width: 200, height: 200, crop: :fill  %>
+    <% end %>
+    </div>
   </h1>
   <div class="bio card2">
   <div class="container">
@@ -14,9 +19,6 @@
     <p1>
       <%= @user.profile.bio %>
     </p1>
-    <% unless @profile.photo == nil %>
-    <%= cl_image_tag @profile.photo.path, width: 200, height: 200, crop: :fill  %>
-    <% end %>
   </div>
   </div>
   </div>
