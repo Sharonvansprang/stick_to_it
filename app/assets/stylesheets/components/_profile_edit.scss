@@ -18,6 +18,65 @@
   color: #333333;
   width: 100vw;
   height: calc(100vh - 100px);
-  background-image: image-url('pink_rice.png');
 }
 
+.banner-generalprofile {
+  color: #333333; //<- blog-card Titles
+  text-align: center;
+
+  // // height: 100vh; <--- watch out with 100vh = 100% screen size! sometimes u need more.
+  // height: 800px;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-navbar6 {
+  margin-top: 32px;
+  border: 2px solid #EE7D9A;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: white;
+  background-color: #EE7D9A;
+  font-family: "Quicksand";
+
+  a {
+    color: white;
+  }
+}
+
+.button-navbar6:hover {
+ transition-timing-function: ease-in-out;
+ transition: 1s;
+ background-color: #c85b5b;
+
+  a {
+    color: white;
+  }
+}
+.card2 {
+    background-color: #eeeeee;
+    border-radius: 3px;
+    padding: 74px;
+    margin: 10px;
+    width: 590px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+ h4 {
+    margin-top: 30px;
+  }
