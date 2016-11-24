@@ -1,13 +1,18 @@
+<div class="color-padding-sm"></div>
+<div class="banner-image"></div>
+
 <div class="blog-banner">
   <div class="container">
     <div class="row">
 
       <% @blogs.each do |blog| %>
-      <div class="card col-sm-12 col-md-6 col-lg-6">
+      <%= link_to blog_path(blog) do %>
+      <div class="card-blog col-sm-12 col-md-6 col-lg-6">
         <h1><%= blog.title %></h1>
         <p><%= blog.intro %></p>
-        <%= link_to "read more..", blog_path(blog)%>
+        read more..
       </div>
+      <% end %>
       <% end %>
     </div>
   </div>
