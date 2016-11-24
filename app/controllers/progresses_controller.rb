@@ -3,12 +3,14 @@ class ProgressesController < ApplicationController
 before_action :find_achievement, only: [:create]
 
   def create
+
     @progress = Progress.new(progress_params)
     @progress.achievement = @achievement
+    @user = User.find(params[:user_id])
     if @progress.save
       redirect_to user_achievement_path(current_user, @achievement)
     else
-      render :new
+      render "achievements/show"
     end
   end
 

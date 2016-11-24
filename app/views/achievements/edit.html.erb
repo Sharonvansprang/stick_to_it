@@ -8,9 +8,25 @@
 <br>
 <br>
 
-  <% if @other_achievements.empty? %>
+  <% if @other_achievements.empty? && @achievement.startdate < Date.today %>
 
-<h3>There are no other users that want to take on this challenge.</h3>
+<h5>There are no other users that want to take on this challenge on the same date and the start date is passed.<br>
+We are sorry. Please give up this challenge. And try again with a new date.
+</h5>
+
+<br>
+<div class="button-log-index">
+
+<%= link_to "Give up this challenge", user_achievement_path(current_user, @achievement),
+      method: :delete,
+      data: { confirm: "Are you sure you want to quit this challenge?" } %>
+</div>
+
+  <% elsif @other_achievements.empty?%>
+
+<h4>There are no other users that want to take on this challenge on the same date!</h4>
+
+
 
   <% else %>
 
