@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+
 .timeline {
   background: #fff;
   margin-top: 10px;
@@ -9,7 +12,7 @@
 hr {
   height: 10px;
   width: 100%;
-  background-color: #6d6dff;
+  background-color: #EE7D9A;
   position: absolute;
   top: 50%;
   margin-top: -10px;
@@ -22,15 +25,16 @@ hr {
 }
 
 .event {
-  background-color: #6d6dff;
+  background-color: #88CED9;
   float: left;
   margin: 0px 5px;
   font-size: 14px;
+  font-family: 'Quicksand', sans-serif;
   position: relative;
   padding: 5px 10px;
   border-radius: 5px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.35);
-  text-shadow: -1px -1px 0px rgba(0,0,0,0.5);
+  // text-shadow: -1px -1px 0px rgba(0,0,0,0.5);
   color: #fff;
   cursor: pointer;
   opacity: 0;
@@ -67,8 +71,13 @@ hr {
 
 
 .event:nth-last-child(2){
+  color: black;
   font-weight: bold;
 }
+
+
+
+
 
 .event:nth-child(odd) {
   top: 3px;
@@ -78,7 +87,7 @@ hr {
   content: "";
   height: 0;
   width: 0;
-  border-top: 12px solid #6d6dff;
+  border-top: 12px solid #88CED9;
   border-right: 12px solid transparent;
   border-left: 12px solid transparent;
   position: absolute;
@@ -92,7 +101,7 @@ hr {
   width: 12px;
   border-radius: 12px;
   position: absolute;
-  background-color: #6d6dff;
+  background-color: #88CED9;
   border: 3px solid #fff;
   top: 62px;
   left: 12px;
@@ -115,7 +124,7 @@ hr {
   content: "";
   height: 0;
   width: 0;
-  border-bottom: 12px solid #6d6dff;
+  border-bottom: 12px solid #88CED9;
   border-right: 12px solid transparent;
   border-left: 12px solid transparent;
   position: absolute;
@@ -129,10 +138,10 @@ hr {
   width: 12px;
   border-radius: 12px;
   position: absolute;
-  background-color: #6d6dff;
+  background-color: #88CED9;
   border: 3px solid #fff;
   top: -30px;
-  left: 12px;
+  left: 16px;
 }
 
 .event.upcoming{

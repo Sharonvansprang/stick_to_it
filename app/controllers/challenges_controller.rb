@@ -5,7 +5,9 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.find(params[:id])
     @achievements = Achievement.where(challenge: @challenge) - Achievement.where(user: current_user)
     @achievement = Achievement.new
-    @other_achievements = Achievement.where(challenge: @challenge)
+    @other_achievements = @challenge.achievements.no_buddy - [@achievement]
+
+
   end
 
 end

@@ -2,132 +2,19 @@
 <div class="text-center">
 
   <div class="padding-cloud">
-
     <br>
     <h1> <%= @achievement.challenge.name %></h1>
     <br>
     <h3> from <em><%= @achievement.startdate.to_formatted_s(:long_ordinal)%> </em> to <em><%= @enddate.to_formatted_s(:long_ordinal) %>  </em>  </h3>
-
   </div>
-
-
   <div class="banner-cloud-top">
-
-
-
-    <div class="timeline">
-      <hr />
-      <div class="events">
-        <% @how_many_days.to_i.times do |day| %>
-        <div class="event">Day<br><%= day + 1 %></div>
-        <% end %>
-        <% if @how_many_days.to_i <= 21 %>
-        <div class="event upcoming">Day<br><%= @how_many_days.to_i + 1 %></div>
-        <% end %>
-      </div>
-    </div>
-
-
-    <%= @days_to_go %> days to go!
-
-
-
-    You still need  <%= 21 - @progresses.count %> succesfull days to succesfully finish this achievement.
-
-
-
-    <br/>
-    This challenge has been going:
-
-    <%= @how_many_days.to_i %> days.
-
-
-    You have finished your daily task:
-
-    <%= @progresses.count %> times.
-
-
-    You're buddy has finished it's daily task:
-
-
-    <%= @progresses_buddy.count %> times.
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-
-  </div>
-
-  <% if !@achievement.buddy_achievement_id.nil? && @achievement.buddy_achievement.nil? %>
-  <h4> <em>Sorry, your buddy has given up!</em> </h4>
-
-  <button type="button" class="navbar-wagon-item navbar-wagon-link button-log" data-toggle="modal" data-target="#chatModal">
-    But you can still update your progress for the day!
-  </button>
-  <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h4 class="modal-title" id="myModalLabel">Tell us about your day!</h4>
-        </div>
-        <div class="modal-body">
-          <%= simple_form_for [current_user, @achievement, @progress] do |f| %>
-          <%= f.hidden_field :day, value: Date.today%>
-          <%= f.input :mood, label: "What is your mood?", collection: Progress::MOOD, include_blank: false %>
-          <%= f.input :done, label: "Have you finished your task of the day?" %>
-          <%= f.input :log %>
-          <%= f.submit "update your daily progress", class: "navbar-wagon-item navbar-wagon-link button-log" %>
-          <% end %>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <% elsif @achievement.buddy_achievement == nil %>
-  <h3> You do not have buddy yet! </h3>
-  <% else %>
-
-
-  <h4>
-    <% if @buddy_achievement.user.provider == "facebook" %>
-    <%= image_tag @buddy_achievement.user.facebook_picture_url, class: "avatar-achievements" %>
-    <% elsif @buddy_achievement.user.profile.photo != nil %>
-    <%= cl_image_tag @buddy_achievement.user.profile.photo.path, gravity: :face, class: "avatar-achievements" %>
-    <% end %>
-    Your buddy: <%= @buddy_achievement.user.first_name %> <%= @buddy_achievement.user.last_name %>
-  </h4>
-  <% end %>
-  <br>
-  <br>
-
-
-
-  <% if !@achievement.buddy_achievement_id.nil? && @achievement.buddy_achievement.nil? %>
-  <h2></h2>
-  <% elsif @achievement.buddy_achievement == nil %>
-  <h3> You do not have buddy yet! </h3>
-  <% else %>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-6">
-
-        <% if @progress_today.nil? %>
-
-        <button type="button" class="navbar-wagon-item navbar-wagon-link button-log" data-toggle="modal" data-target="#chatModal">
+    <% if @achievement.startdate > Date.today %>
+      <br>
+      <br>
+      <h3>This challenge has not started yet! Check back at  <%= @achievement.startdate.to_formatted_s(:long_ordinal) %>.  </h3>
+    <% else %>
+      <% if @progress_today.nil? %>
+        <button type="button" class="button-log" data-toggle="modal" data-target="#chatModal">
           Update your progress for the day!
         </button>
         <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -145,34 +32,90 @@
                 <%= f.input :mood, label: "What is your mood?", collection: Progress::MOOD, include_blank: false %>
                 <%= f.input :done, label: "Have you finished your task of the day?" %>
                 <%= f.input :log %>
-                <%= f.submit "update your daily progress", class: "navbar-wagon-item navbar-wagon-link button-log" %>
+                <%= f.submit "update your daily progress", class: "button-log" %>
                 <% end %>
-
               </div>
             </div>
           </div>
         </div>
-
-        <% else %>
+      <% else %>
         <h3>Your progress today</h3>
-
         <h5>Your thoughts:
           <%= @progress_today.log %></h5>
           <h5>Your mood:
             <%= @progress_today.mood %> <%= @mood %> </h5>
+              <% if @progress_today.done %>
+                <h5>You have completed your task of the day!</h5>
+              <% end %>
+      <% end %>
 
-            <% if @progress_today.done %>
-            <h5>You have completed your task of the day!</h5>
+      <h5><%= @days_to_go %> days to go!
+      You still need  <%= 21 - @progresses.count %> succesfull days to succesfully finish this achievement.
+      <br/>
+      This challenge has been going: <%= @how_many_days.to_i %> days.
+      You have finished your daily task: <%= @progresses.count %> times.
+      Your buddy has finished it's daily task: <%= @progresses_buddy.count %> times.</h5>
+
+    <div class="timeline">
+      <hr />
+      <div class="events">
+        <% @progresses.count.times do |day| %>
+        <div class="event">Day<br><%= day + 1 %></div>
+        <% end %>
+        <% if @progresses.count < 21 %>
+        <div class="event upcoming">Day<br><%= @progresses.count + 1 %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  <% if !@achievement.buddy_achievement_id.nil? && @achievement.buddy_achievement.nil? %>
+  <h4> <em>Sorry, your buddy has given up!</em>  <%= "\xF0\x9F\x98\xA2" %>  </h4>
+<br>
+
+  <% elsif @achievement.buddy_achievement == nil %>
+  <h3> You do not have buddy yet! </h3>
+  <% else %>
 
 
-            <% end %>
+  <h4>
+    <% if @buddy_achievement.user.provider == "facebook" %>
+    <%= image_tag @buddy_achievement.user.facebook_picture_url, class: "avatar-achievements" %>
+    <% elsif @buddy_achievement.user.profile.photo != nil %>
+    <%= cl_image_tag @buddy_achievement.user.profile.photo.path, gravity: :face, class: "avatar-achievements" %>
+    <% end %>
+    Your buddy: <%= @buddy_achievement.user.first_name %> <%= @buddy_achievement.user.last_name %>
+  </h4>
 
-            <% end %>
+    <div class="timeline">
+      <hr />
+      <div class="events">
+        <% @progresses_buddy.count.times do |day| %>
+        <div class="event">Day<br><%= day + 1 %></div>
+        <% end %>
+        <% if @progresses_buddy.count < 21 %>
+        <div class="event upcoming">Day<br><%= @progresses_buddy.count + 1 %></div>
+        <% end %>
+      </div>
+    </div>
 
-          </div>
 
-          <div class="col-xs-6">
 
+  <% end %>
+  <br>
+  <br>
+
+
+
+  <% if !@achievement.buddy_achievement_id.nil? && @achievement.buddy_achievement.nil? %>
+  <h2></h2>
+  <% elsif @achievement.buddy_achievement == nil %>
+  <h3> You do not have buddy yet! </h3>
+  <% else %>
 
             <% if @buddy_progress_today.nil? %>
 
@@ -202,9 +145,9 @@
 
                 <%# end %>
 
-              </div>
+          <!--     </div>
             </div>
-          </div>
+          </div> -->
 
 
           <div style="height: 80px; background-color: #88CED9; margin-top: 100px;"></div>
@@ -213,7 +156,7 @@
               <div class="row">
                 <div class="col-xs-5">
                   <div class="new-message">
-                    <h3>Chat with your buddy!</h3>
+                    <h3>Chat with <%=   @buddy_achievement.user.first_name %>   </h3>
                     <br>
                     <br>
                     <%= simple_form_for [current_user, @achievement, @message] do |f| %>
@@ -232,66 +175,70 @@
                   <ul>
                     <% @messages.each do |message| %>
                     <% if message.achievement.user == current_user %>
-                    <div class="links">
-
-                      <h5>
-
-                        <li><%= message.created_at.strftime("%R")%>  <strong> - You </strong> </li>
+                      <div class="links">
+                        <h5>
+                          <li><% if message.created_at < Date.today %>
+                          <%= message.created_at.strftime("%A") %><%= message.created_at.strftime("%R") %>
+                          <% else %>
+                          <%= message.created_at.strftime("%R") %>
+                          <% end %>
+                          <strong> - You </strong></li>
+                          <br>
+                          <li>   <%= message.text%></li>
+                          <li>  <%= message.url %></li>
+                          <% if message.photo? %>
+                          <li> <%= cl_image_tag message.photo.path, width: 200, height: 200, crop: :fill %></li>
+                          <% end %>
+                        </h5>
+                      </div>
+                    <% else %>
+                      <div class="rechts">
+                        <h5>
+                        <li> <% if message.created_at < Date.today %>
+                              <%= message.created_at.strftime("%A") %> <%= message.created_at.strftime("%R") %>
+                            <% else %>
+                              <%= message.created_at.strftime("%R") %>
+                            <% end %>
+                              <strong> <%= message.achievement.user.first_name%></strong></li>
                         <br>
-                        <li>   <%= message.text%></li>
+                        <li>  <%= message.text%></li>
                         <li>  <%= message.url %></li>
-
                         <% if message.photo? %>
                         <li> <%= cl_image_tag message.photo.path, width: 200, height: 200, crop: :fill %></li>
                         <% end %>
-                      </h5></div>
-
-                      <% else %>
-
-                      <div class="rechts"><h5>
-                       <li>
-
-
-                        <% if message.created_at < Date.today %>
-
-                        <%= message.created_at.strftime("%A") %>
-
-                        <%= message.created_at.strftime("%R") %>
-
-
-                        <% else %>
-
-                        <%= message.created_at.strftime("%R") %>
-
-
-                        <% end %>
-
-
-                        <strong> <%= message.achievement.user.first_name%></strong>   </li><br>
-
-                        <li>   <%= message.text%></li>
-                        <li>  <%= message.url %></li>
-
-                        <% if message.photo? %>
-                        <li> <%= cl_image_tag message.photo.path, width: 200, height: 200, crop: :fill %></li>
-                        <% end %>
-                      </h5></div>
+                        </h5>
+                      </div>
                       <% end %>
                       <% end %>
-
                     </ul>
                   </div>
-
                 </div>
+
                 <% else %>
                 <div class="col-xs-7">
-                  There are no messages yet!
+                  <div class="text-center some-container">
+                    <br>
+                    <br>
+                    <h4> Start up a conversation with your buddy! </h4>
+                    <br>
+                    <br>
+                    <h5>Try to motivate <%= @buddy_achievement.user.first_name %>!
+                    <br>
+                    <br>
+                    Send an encouraging message or a helpful link.
+                    <br>
+                   <br>
+                    Help your buddy succeed.
+                    </h5>
+                  </div>
                 </div>
                 <% end %>
                 <% end %>
               </div>
             </div>
           </div>
+    <% end %>
+
         </div>
 
         <% elsif current_user %>
