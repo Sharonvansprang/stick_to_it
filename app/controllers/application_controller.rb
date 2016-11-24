@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :check_profile
- protected
+  protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
@@ -15,9 +15,13 @@ class ApplicationController < ActionController::Base
   if current_user && current_user.profile.nil?
     flash[:alert] = "Without a profile, you cannot join a challenge."
 
-    redirect_to new_profile_path
+      redirect_to new_profile_path
 
+    end
   end
 
-end
-end
+    def default_url_options
+      { host: ENV['HOST'] || 'localhost:3000' }
+    end
+
+  end

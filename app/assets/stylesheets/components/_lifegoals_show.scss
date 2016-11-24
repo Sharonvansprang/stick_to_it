@@ -13,7 +13,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition-timing-function: ease-in-out;
+  transition: 1s;
 }
+
 
 .banner-life-goals {
   background-color: white;
@@ -29,17 +32,19 @@
 }
 
 .banner-life-goals a {
-  border-bottom: 2px solid #333;
+  // border-bottom: 2px solid #333;
   padding: 20px;
   color: #333;
   font-size: 20px;
+  font-family: "Quicksand";
 }
 
 
-.banner-life-goals a:hover {
-  font-size: 21px;
-  transition-timing-function: ease-in-out;
-  transition: 1s;
+.banner-life-goals .card:hover {
+  // font-size: 21px;
+
+  background-color: #BBE5ED;
+  text-decoration: none;
 }
 
 #life-goals-header .card {

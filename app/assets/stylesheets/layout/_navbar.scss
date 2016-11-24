@@ -70,11 +70,12 @@ nav .avatar-nav {
   color: white;
   background-color: #EE7D9A;
   font-family: "Quicksand";
+  transition-timing-function: ease-in-out;
+ transition: 1s;
 }
 
 .button-navbar a:hover {
- transition-timing-function: ease-in-out;
- transition: 1s;
+
  background-color: #c85b5b;
 }
 

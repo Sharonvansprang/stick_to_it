@@ -246,6 +246,8 @@ color: white;
   color: white;
   // font-size: 14px;
   border: 2px solid #88CED9;
+  transition-timing-function: ease-in-out;
+  transition: 1s;
 }
 
 .button-steps {
@@ -309,11 +311,11 @@ color: white;
 
 .button-logout a {
   color: #333;
+  transition-timing-function: ease-in-out;
+  transition: 1s;
 }
 .button-logout :hover {
- transition-timing-function: ease-in-out;
- transition: 1s;
- color: #88C48D;
+  color: #88C48D;
 }
 
 // profile new
