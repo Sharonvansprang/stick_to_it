@@ -1,39 +1,46 @@
 
-<div class="padded1">
-</div>
+<div class="padded2">
 
-<div class="banner-background1">
 
   <% if current_user && (current_user.profile.nil? || current_user.profile.invalid? )   %>
 
   <div class="questions text-center profile">
-    <h1>Welcome <%=current_user.first_name %>   <%=current_user.last_name %>!</h1>
-    <h3>Please make your profile complete. </h3>
-</div>
-</div>
+    <h1><strong> Welcome <%=current_user.first_name %>   <%=current_user.last_name %>! </strong></h1>
+<div class= "text-center">
+<h4>Please make your profile complete.</h4>
 
-<div class="text-center">
-    <h3>Some questions you could answer in your bio:</h3>
-  <ul>
-    <% @sample.each do |question| %>
 
-  <li> <h4> <%= question %></h4>  </li>
-
-    <% end %>
 </ul>
+</div>
+
+
+</div>
+</div>
+<div class="banner-background1">
+
+</div>
+</div>
 </div>
 <div class="scratch-bg">
 
 <div>
-    <div class="form-container">
+    <div class="form-container margin-top-lg">
+    <div class="text-centerprof">
+<h4><strong>Some questions you could answer in your bio:</strong></h4>
+  <ul>
+    <% @sample.each do |question| %>
+
+  <li> <h5> <%= question %></h>  </li>
+
+    <% end %>
 
      <%= simple_form_for [@profile] do |f| %>
-     <h5><%= f.input :bio %></h5>
+     <h5><%= f.input :bio, :input_html => {:rows => 5} %></h5>
      <h5><%= f.input :photo, as: :attachinary %></h5>
      <h5><%= f.input :photo_cache, as: :hidden %></h5>
-     <%= f.submit "write something funny" %>
+     <%= f.submit "Submit", class: "button-log" %>
      <% end %>
-
+    </div>
 
    </div>
 </div>
