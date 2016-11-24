@@ -17,12 +17,12 @@
   font-family: "Quicksand";
 }
 
-.card-blog a {
+.card-blog {
   text-decoration:none;
   color: #333333;
 }
 
-.card-blog a:hover {
+.card-blog:hover {
  transition-timing-function: ease-in-out;
  transition: 1s;
  color: #88C48D;
@@ -76,6 +76,7 @@ a:hover {
 // @KITTY re position the blog-banner class
 .blog-banner {
   font-family: "Quicksand";
+  padding-bottom: 50px;
   // background-image: image-url('cloud.png');
   // background-size: 150px;
   color: #333333; //<- blog-card Titles

@@ -6,11 +6,13 @@
     <div class="row">
 
       <% @blogs.each do |blog| %>
+      <%= link_to blog_path(blog) do %>
       <div class="card-blog col-sm-12 col-md-6 col-lg-6">
-        <h1><%= link_to blog.title, blog_path(blog) %></h1>
-        <p><%= link_to blog.intro, blog_path(blog) %></p>
-        <%= link_to "read more..", blog_path(blog)%>
+        <h1><%= blog.title %></h1>
+        <p><%= blog.intro %></p>
+        read more..
       </div>
+      <% end %>
       <% end %>
     </div>
   </div>
