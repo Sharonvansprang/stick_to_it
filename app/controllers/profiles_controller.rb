@@ -14,7 +14,7 @@ a Saturday?", "Do you have any pet peeves?", "What was your family like growing 
 "Did you—or do you—have a nickname? What’s the story behind it?",
 "Who was your favorite schoolteacher or college professor? Why?",
 "Have you figured out your calling in life? What is it?  "]
-@sample = questions.sample(3)
+@sample = questions.sample(2)
 end
 
 def create

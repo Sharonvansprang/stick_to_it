@@ -12,15 +12,16 @@ class ApplicationController < ActionController::Base
 
   def check_profile
 
-    if current_user && current_user.profile.nil?
+  if current_user && current_user.profile.nil?
+    flash[:alert] = "Without a profile, you cannot join a challenge."
 
       redirect_to new_profile_path
 
     end
+  end
 
     def default_url_options
       { host: ENV['HOST'] || 'localhost:3000' }
     end
 
   end
-end
