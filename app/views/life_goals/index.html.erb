@@ -7,9 +7,9 @@
 
       <div class="banner-general">
         <h1 class= "font" >Life Goals</h1>
-        <h3>Choose one of the three challenging life goals.
+        <h3>Choose one of the three life goals.
           <br>Are you ready to challenge yourself?
-          <br>Pick a challenge and a startdate</h3>
+          <br>Pick a challenge and a startdate.</h3>
           <div class="card">
             <% @life_goals.each do |life_goal| %>
             <%= link_to life_goal.name, life_goal_path(life_goal) %>
