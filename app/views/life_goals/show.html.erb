@@ -12,11 +12,13 @@
         <% @challenges.each do |challenge| %>
         <% if !current_user.challenges.include?(challenge)%>
         <div class="col-xs-12 col-md-6">
-          <div class="card">
-            <h2><%= challenge.name %> </h2>
-            <%= challenge.description %>
-            <h3><%= link_to "Read more..", challenge_path(challenge) %></h3>
+         <%= link_to challenge_path(challenge) do %>
+         <div class="card">
+          <h2><%= challenge.name %> </h2>
+          <p><%= challenge.description %></p>
+          <h4><%= "Read more.." %></h3>
           </div>
+          <% end %>
         </div>
         <% end %>
         <% end %>

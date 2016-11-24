@@ -2,16 +2,20 @@
 <section id="life-goals-header">
   <div class="row">
     <div class="banner-container">
-    <div class="color-padding">
+      <div class="color-padding-sm"></div>
+      <div class="banner-image"></div>
+
       <div class="banner-general">
         <h1 class= "font" >Life Goals</h1>
-        <div class="card">
-          <% @life_goals.each do |life_goal| %>
-          <%= link_to life_goal.name, life_goal_path(life_goal) %>
-          <% end %>
+        <h3>Choose one of the three challenging life goals.
+          <br>Are you ready to challenge yourself?
+          <br>Pick a challenge and a startdate</h3>
+          <div class="card">
+            <% @life_goals.each do |life_goal| %>
+            <%= link_to life_goal.name, life_goal_path(life_goal) %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>

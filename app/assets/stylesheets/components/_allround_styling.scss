@@ -116,37 +116,44 @@ a:hover {
   justify-content: center;
 }
 
-.banner-general .card {
+.banner-general h3 {
   // width: 30%;
+  font-family: "Quicksand";
 }
+
+
 
 // .card a = styling home page knoppen.
 .banner-general .card a {
-    border-bottom: 2px solid #333;
-    padding: 20px;
-    color: #333;
-    font-size: 23px;
-    color: white;
-    font-family: "Quicksand";
-    font-weight: 400;
-    width: 450px;
-    margin-bottom: 21px;
-    background-color: #EE7D9A;
-    border: 1px solid #EE7D9A;
-    text-shadow: 0px 2px 3px #222;
-    border-radius: 3px;
-    box-shadow: 0px 3px 5px rgba(34, 34, 34, 0.17);
+  border-bottom: 2px solid #333;
+  padding: 20px;
+  color: #333;
+  font-size: 23px;
+  color: white;
+  font-family: "Quicksand";
+  font-weight: 400;
+  width: 450px;
+  margin-bottom: 21px;
+  background-color: #EE7D9A;
+  border: 1px solid #EE7D9A;
+  text-shadow: 0px 2px 3px #222;
+  border-radius: 3px;
+  box-shadow: 0px 3px 5px rgba(34, 34, 34, 0.17);
+  transition-timing-function: ease-in-out;
+  transition: 1s;
 }
 
-.banner-general .card a:hover {
+.banner-general .card:hover {
   // font-size: 21px;
   transition-timing-function: ease-in-out;
   transition: 1s;
-  background-color: #c85b5b;
+  // background-color: #88a1d9;
+  text-decoration: none;
 }
 
 .banner-general a:hover {
   // font-size: 21px;
+  background-color: #c85b5b;
   transition-timing-function: ease-in-out;
   transition: 1s;
 }
