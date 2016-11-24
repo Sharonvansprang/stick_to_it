@@ -2,7 +2,7 @@ class AchievementsController < ApplicationController
 
 
   before_action :find_challenge, only: [:create]
-  before_action :find_achievement, only: [:show, :edit, :update]
+  before_action :find_achievement, only: [:show, :edit, :update, :destroy]
   before_action :find_buddy_achievement, only: [:update]
   before_action :find_user, only: [:index, :show, :edit]
   before_action :find_emoji, only: [:show]
@@ -62,6 +62,11 @@ class AchievementsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @achievement.destroy
+    redirect_to user_achievements_path(current_user)
   end
 
 
