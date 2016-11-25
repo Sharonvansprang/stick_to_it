@@ -86,8 +86,8 @@
 <!-- <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.laserspinewellness.com/wp-content/uploads/2013/12/life-goals.jpg');">
   <div class="banner-content"> -->
     <div class="header-cloud headerhome">
-      <h1>Stick to It!</h1>
-      <p>Get a free membership, team up with a buddy and reach your goals!</p>
+      <h1>Stick To It!</h1>
+      <p>Pick a challenge, team up with a buddy and reach your goals!</p>
 
       <%= link_to 'Sign up',  new_user_registration_path, class: "button-log" %>
     </div>
@@ -99,24 +99,24 @@
             <%= image_tag 'cloudflag.png', class:"logo" %>
 
             <h2>Challenge yourself!</h2>
-            <p>We help keeping you focused when your mind is busy with millions of things!</p>
+            <p>We will keep you focused when your mind is busy with a millions things!</p>
           </div>
 
           <div class="col-xs-12 col-sm-6 col-md-3">
             <%= image_tag 'megaphone_pink.png', class: "logo" %>
             <h2>Share the love</h2>
-            <p>Live a healthier, happier and a more enjoyable live. </p>
+            <p>Live a healthier, happier and more enjoyable live. </p>
           </div>
 
           <div class="col-xs-12 col-sm-6 col-md-3">
            <%= image_tag 'notalone.png', class: "logo" %>
            <h2>You are not alone</h2>
-           <p>Your buddies are here to cheer you on when you lack motivation</p>
+           <p>Your buddies are here to cheer you on when you lack motivation.</p>
          </div>
          <div class="col-xs-12 col-sm-6 col-md-3">
            <%= image_tag 'rocket.png', class: "logo" %>
            <h2>Anytime, anywhere</h2>
-           <p>Stick to it, is your personal coach you can fit in your pocket.</p>
+           <p>Stick To It, is your personal coach you can fit in your pocket.</p>
          </div>
        </div>
      </div>
@@ -185,9 +185,24 @@
 <!-- footer -->
 <div id="footer">
   <ul class="text-center list-inline">
-    <li><a href="https://nl.linkedin.com/in/sharon-van-sprang-msc-620a255"><i class="fa fa-tumblr fa-2x footer-icons"></i></a></li>
-    <li><a href="https://www.linkedin.com/in/kitty-van-leeuwen-a8159648/en"><i class="fa fa-envelope fa-2x footer-icons"></i></a></li>
-    <li><a href="https://www.linkedin.com/in/paulien-sewuster-01438643"><i class="fa fa-facebook fa-2x footer-icons"></i></a></li>
+
+  <li>  <div class="footer-white">
+   <h3> Meet our team </h3> </div> </li>
+  <li>     </li>
+   <li>  <%= link_to("https://nl.linkedin.com/in/sharon-van-sprang-msc-620a255", target: "_blank" ) do %>
+
+      <%= image_tag "sharon.jpg", class: "avatar-linkedin" %>
+        <% end %></li>
+
+      <li>  <%= link_to("https://www.linkedin.com/in/kitty-van-leeuwen-a8159648/en", target: "_blank") do %>
+
+      <%= image_tag "kitty.jpg", class: "avatar-linkedin" %>
+        <% end %></li>
+
+  <li>  <%= link_to("https://www.linkedin.com/in/paulien-sewuster-01438643", target: "_blank") do %>
+
+      <%= image_tag "paulien.jpg", class: "avatar-linkedin" %>
+        <% end %></li>
   </ul>
   <div></div></div>
 
